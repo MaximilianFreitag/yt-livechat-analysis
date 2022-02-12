@@ -71,14 +71,16 @@ with col3:
 
     #if url is empty display enter a url
     if url == '':
-        st.write('Gebe die URL hier ein und drücke "Start"')
+        st.write('Gebe die URL hier ein und drücke Start')
 
     #if the url does not start with https://www.youtube.com/watch?v=
     if url.startswith('https://www.youtube.com/watch?v='):
-        video_id = url.split('=')[1] 
+        video_id = url.split('=')[1]
+        
+    if url.startswith('https://youtu.be/'):
+        video_id = url.split('be/')[1]     
 
-    if 'https://www.youtube.com/watch?v=' not in url:
-        st.write('Please enter a valid url')   
+     
     
 
    
