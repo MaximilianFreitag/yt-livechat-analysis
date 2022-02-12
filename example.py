@@ -1,0 +1,230 @@
+import streamlit as st
+import pandas as pd
+import numpy as np
+import pytchat as pytchat
+import matplotlib.pyplot as plt
+
+
+
+
+#Favicon and Header
+st.set_page_config(
+        page_title='YouTube Livechat Analyse                 ',
+        page_icon="🔎"
+        )
+
+
+hide_streamlit_style = """
+            <style>
+            #MainMenu {visibility: hidden;}
+            footer {visibility: hidden;}
+            </style>
+            """
+st.markdown(hide_streamlit_style, unsafe_allow_html=True) 
+
+
+
+
+
+
+#START VALUES
+authors = []
+messages = []
+supporters = []
+timestamps = []
+laugh = []
+mods = []
+gesuchtes_wort = []
+
+
+liveChat = None
+
+
+
+col1, col2, col3, col4, col5 = st.columns([1,1,5,1,1])
+
+
+with col1:
+        st.write("")
+
+with col5:
+        st.write("")        
+
+
+with col3:
+    st.title('Youtube Livestream Analyse')
+
+    st.write('Gebe eine URL eines bereits beendeten YouTube livestream und vergewissere dich, dass die Wiedergabe des chats aktiviert wurde. ')
+    st.write('Die Analyse funktioniert nicht bei gerade laufenden livestreams! ')
+    st.write('Hier ist eine Beispiel URL eines streams der 5 Minuten ging.  ')
+    st.code('https://www.youtube.com/watch?v=QH2-TGUlwu4')
+    st.write('Wenn du deine URL eingibst, wird die Analyse gestartet. Die Ergebnisse werden erst angezeigt wenn die Wiedergabe des streams einmal durchgelaufen ist. Sprich wenn der stream 2 Stunden ging, musst du 2 Stunden auf das Ergebnis warten ')
+
+    
+
+    #text box input + video url
+    url = st.text_input("Enter the video url: ")
+
+    #if url is empty display enter a url
+    if url == '':
+        st.write('Gebe die URL hier ein und drücke "Start"')
+
+    #if the url does not start with https://www.youtube.com/watch?v=
+    if url.startswith('https://www.youtube.com/watch?v='):
+        video_id = url.split('=')[1] 
+
+    if 'https://www.youtube.com/watch?v=' not in url:
+        st.write('Please enter a valid url')   
+    
+
+    #nehme von der URL nur die id
+    
+
+    
+
+
+
+#Diese Funktion wandelt alle timestamps (25:38) zu einer einzelnen Minute um (25)
+#Also aus 56:33 wird dann 56
+def get_minutes(timestamps):
+    minutes_list = []
+    for minute in timestamps:
+        #if minute is 4 characters long
+        if len(minute) == 4 or len(minute) == 5:
+            minutes_list.append(minute.split(':')[0])
+
+        elif len(minute) == 7:
+            #input: 1:11:01
+            #output: 111
+            
+            minutes_list.append(minute.split(':')[0] + minute.split(':')[1])
+            
+    return minutes_list
+
+
+
+
+
+chat = pytchat.create(video_id, interruptable=False)
+
+
+
+def plot():
+    st.write('Finished')
+
+    st.write('Wie viele individuelle user kommentierten?')
+    st.write(len(authors))
+    st.write('    ')
+    st.write('Gesamtzahl aller Nachrichten')
+    st.write(len(messages))
+    st.write('    ')
+    st.write('    ')
+    st.write('    ')
+
+    st.write('Anwesende mods')
+    st.write((mods))
+    st.write('    ')
+    st.write('    ')
+    st.write('    ')
+
+    st.write('Verlauf der Anzahl der Nachrichten pro Minute')
+    occurences = get_minutes(timestamps)
+    plt.rcParams["figure.figsize"] = (40,10)
+    plt.hist(occurences, bins=300) 
+    fig, ax = plt.subplots()
+    st.pyplot(fig)
+
+
+    st.write('    ')
+    st.write('    ')
+    st.write('    ')
+
+    st.write('In welcher Minute lachte der chat am meisten? (haha, lol, lel, emojis, xD, ...)')
+    laugh_occurences = get_minutes(laugh)
+    plt.rcParams["figure.figsize"] = (40,10)
+    plt.hist(laugh_occurences, bins=300) 
+
+    fig, ax = plt.subplots()
+    st.pyplot(fig)
+
+
+
+
+
+
+
+#Die Hauptfunktion zum sammeln der Daten
+def runChat():
+
+  global chat
+  
+  while chat.is_alive():
+        
+
+        st.write('Collecting data... ')
+        st.write('Let the stream play until it ends and then you get the results ')
+        #display a gif
+        st.image('https://media.giphy.com/media/l46Cy1rHbQ92uuLXa/giphy.gif')
+
+        
+        for c in chat.get().sync_items():
+
+            
+            #Alle Timestamps
+            #TIMESTAMPS 0:00
+            #time_elapsed = format_time(time.time() - start_time)
+            timestamps.append(c.elapsedTime)
+            
+            
+
+
+            #UNIQUE AUTHORS
+            if c.author.name not in authors:
+                authors.append(c.author.name)
+            
+            if c.author.isChatModerator == True and c.author.isChatModerator not in mods:
+                mods.append(c.author.name)
+                
+
+
+            #FILTER MESSAGES
+            if c.message.startswith('!'):
+                pass
+            
+            elif c.author.name == 'Streamlabs':
+                pass
+            
+            #APPEND AND OUTPUT FILTERED MESSAGES 
+            else:
+##########################################################################################################################################                
+                
+                messages.append(c.message)
+                #print(f" {c.author.name} // {c.message} // {c.elapsedTime} // {c.amountString}")
+                
+##########################################################################################################################################
+
+            #EXTRACT LAUGHS
+            if "haha" in c.message or ":rolling_on_the_floor_laughing:" in c.message or "lel" in c.message or "LeL" in c.message or "LEL" in c.message or "Haha" in c.message or ":grinning_squinting_face:" in c.message or ":face_with_tears_of_joy:" in c.message or "lol" in c.message or "LOL" in c.message or "HAHA" in c.message or "XD" in c.message or "xD" in c.message or "lol" in c.message:
+                laugh.append(c.elapsedTime)
+
+
+            if st.button('Stop', key="2"):
+                chat.close() 
+                plot()
+
+
+
+
+with col3:
+    st.write(' ')
+    if st.button('Start', key="1"):
+        runChat()
+        plot()
+
+
+
+
+
+
+
+
