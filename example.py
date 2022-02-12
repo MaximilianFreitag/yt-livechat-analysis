@@ -3,6 +3,8 @@ import pandas as pd
 import numpy as np
 import pytchat as pytchat
 import matplotlib.pyplot as plt
+import plotly
+import plotly.graph_objects as go
 
 
 
@@ -35,6 +37,8 @@ timestamps = []
 laugh = []
 mods = []
 gesuchtes_wort = []
+gezeigte_worte = []
+
 
 
 liveChat = None
@@ -61,9 +65,9 @@ with col3:
     st.write('Wenn du deine URL eingibst, wird die Analyse gestartet. Die Ergebnisse werden erst angezeigt wenn die Wiedergabe des streams einmal durchgelaufen ist. Sprich wenn der stream 2 Stunden ging, musst du 2 Stunden auf das Ergebnis warten ')
 
     
-
+    
     #text box input + video url
-    url = st.text_input("Enter the video url: ")
+    url = st.text_input("Enter the video url: ", placeholder="https://www.youtube.com/watch?v=QH2-TGUlwu4")
 
     #if url is empty display enter a url
     if url == '':
@@ -77,10 +81,9 @@ with col3:
         st.write('Please enter a valid url')   
     
 
-    #nehme von der URL nur die id
+   
     
 
-    
 
 
 
@@ -129,10 +132,8 @@ def plot():
 
     st.write('Verlauf der Anzahl der Nachrichten pro Minute')
     occurences = get_minutes(timestamps)
-    plt.rcParams["figure.figsize"] = (40,10)
-    plt.hist(occurences, bins=300) 
-    fig, ax = plt.subplots()
-    st.pyplot(fig)
+    #plot the occurences with streamlit
+    create_plotly_figure(get_minutes(occurences))
 
 
     st.write('    ')
@@ -141,13 +142,33 @@ def plot():
 
     st.write('In welcher Minute lachte der chat am meisten? (haha, lol, lel, emojis, xD, ...)')
     laugh_occurences = get_minutes(laugh)
-    plt.rcParams["figure.figsize"] = (40,10)
-    plt.hist(laugh_occurences, bins=300) 
+    #plot the laugh_occurences with streamlit
+    create_plotly_figure(get_minutes(laugh_occurences))
 
-    fig, ax = plt.subplots()
-    st.pyplot(fig)
+    
 
 
+
+
+
+def create_plotly_figure(occurences):
+    #create a figure
+    fig = go.Figure()
+
+    #add a histogram
+    fig.add_trace(go.Histogram(x=occurences))
+
+    #add some layout features
+    fig.update_layout(
+        title_text='Minutes of the day',
+        xaxis_title_text='Minutes',
+        yaxis_title_text='Count'
+    )
+
+    return fig    
+    
+    
+    
 
 
 
@@ -164,7 +185,9 @@ def runChat():
         st.write('Collecting data... ')
         st.write('Let the stream play until it ends and then you get the results ')
         #display a gif
-        st.image('https://media.giphy.com/media/l46Cy1rHbQ92uuLXa/giphy.gif')
+        #data_load_state = st.text('Please wait...')
+        #st.image('https://media.giphy.com/media/l46Cy1rHbQ92uuLXa/giphy.gif')
+        
 
         
         for c in chat.get().sync_items():
@@ -199,7 +222,9 @@ def runChat():
 ##########################################################################################################################################                
                 
                 messages.append(c.message)
-                #print(f" {c.author.name} // {c.message} // {c.elapsedTime} // {c.amountString}")
+                #st.write(f" {c.author.name} // {c.message} // {c.elapsedTime} // {c.amountString}")
+                
+
                 
 ##########################################################################################################################################
 
@@ -208,10 +233,15 @@ def runChat():
                 laugh.append(c.elapsedTime)
 
 
-            if st.button('Stop', key="2"):
-                chat.close() 
-                plot()
 
+
+
+            
+                
+
+
+
+        
 
 
 
