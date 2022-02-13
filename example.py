@@ -60,9 +60,9 @@ with col3:
 
     st.write('Gebe eine URL eines bereits beendeten YouTube livestream und vergewissere dich, dass die Wiedergabe des chats aktiviert wurde. ')
     st.write('Die Analyse funktioniert nicht bei gerade laufenden livestreams! ')
-    st.write('Hier ist eine Beispiel URL eines streams der 60 Minuten ging.  ')
+    st.write('Hier ist eine Beispiel URL eines streams der 60 Minuten ging. Ich habe leider keinen kürzeren stream gefunden...')
     st.code('https://www.youtube.com/watch?v=e7EVbT0W9uU')
-    st.write('Wenn du deine URL eingibst und auf "Start" drückst, wird die Analyse gestartet. ')
+    st.write('Wenn du deine URL eingibst und auf "Start" drückst, wird die Analyse gestartet. Die Analyse läuft solange bis der stream einmal komplett durchgelaufen ist. Sprich, wenn der stream 2 Stunden ging, muss man 2 Stunden auf das Ergebnis warten.')
 
     
     
@@ -72,6 +72,7 @@ with col3:
     #if url is empty display enter a url
     if url == '':
         st.write('Gebe die URL hier ein und drücke "Start"')
+        video_id = 'https://www.youtube.com/watch?v=e7EVbT0W9uU'
 
     #if the url does not start with https://www.youtube.com/watch?v=
     if url.startswith('https://www.youtube.com/watch?v='):
