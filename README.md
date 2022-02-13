@@ -24,7 +24,8 @@ Sometimes the program won't work when the livestream contains too many messages 
 <br />
 <br />
 
+
+
 ## Stargazers over time
 
-[![Stargazers over time](https://starchart.cc/MaximilianFreitag/Zufallswort.svg)](https://starchart.cc/MaximilianFreitag/yt-livechat-analysis)
-
+[![Stargazers over time](https://starchart.cc/MaximilianFreitag/yt-livechat-analysis.svg)](https://starchart.cc/MaximilianFreitag/yt-livechat-analysis)
