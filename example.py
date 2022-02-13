@@ -72,7 +72,7 @@ with col3:
     #if url is empty display enter a url
     if url == '':
         st.write('Gebe die URL hier ein und drücke "Start"')
-        #video_id = 'https://www.youtube.com/watch?v=e7EVbT0W9uU'
+        video_id = 'https://www.youtube.com/watch?v=e7EVbT0W9uU'
 
     #if the url does not start with https://www.youtube.com/watch?v=
     if url.startswith('https://www.youtube.com/watch?v='):
@@ -81,10 +81,7 @@ with col3:
     if url.startswith('https://youtu.be'):
         video_id = url.split('be/')[1] 
 
-    if 'https://www.youtu' not in url:
-        st.write('Gebe eine gültige URL ein!')   
     
-
    
     
 
@@ -141,6 +138,8 @@ def plot():
     #plot the occurences with streamlit
     #st.write(occurences)
     st.plotly_chart(create_plotly_figure(occurences))
+    #st.write(occurences)
+
 
 
     st.write('    ')
@@ -245,16 +244,10 @@ def runChat():
                 laugh.append(c.elapsedTime)
 
 
+  st.write('Fertig')
   
   
 
-
-
-            
-
-
-
-         
 
 
 
@@ -263,9 +256,6 @@ with col3:
     if st.button('Start', key="1"):
         runChat()
         plot()
-
-
-
 
 
 
