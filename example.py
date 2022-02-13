@@ -3,7 +3,7 @@ import pandas as pd
 import numpy as np
 import pytchat as pytchat
 import matplotlib.pyplot as plt
-import plotly
+#import plotly
 import plotly.graph_objects as go
 
 
@@ -12,7 +12,7 @@ import plotly.graph_objects as go
 #Favicon and Header
 st.set_page_config(
         page_title='YouTube Livechat Analyse                 ',
-        page_icon="🔎"
+        page_icon="📊"
         )
 
 
@@ -60,9 +60,9 @@ with col3:
 
     st.write('Gebe eine URL eines bereits beendeten YouTube livestream und vergewissere dich, dass die Wiedergabe des chats aktiviert wurde. ')
     st.write('Die Analyse funktioniert nicht bei gerade laufenden livestreams! ')
-    st.write('Hier ist eine Beispiel URL eines streams der 5 Minuten ging.  ')
-    st.code('https://www.youtube.com/watch?v=QH2-TGUlwu4')
-    st.write('Wenn du deine URL eingibst, wird die Analyse gestartet. Die Ergebnisse werden erst angezeigt wenn die Wiedergabe des streams einmal durchgelaufen ist. Sprich wenn der stream 2 Stunden ging, musst du 2 Stunden auf das Ergebnis warten ')
+    st.write('Hier ist eine Beispiel URL eines streams der 60 Minuten ging.  ')
+    st.code('https://www.youtube.com/watch?v=e7EVbT0W9uU')
+    st.write('Wenn du deine URL eingibst und auf "Start" drückst, wird die Analyse gestartet. ')
 
     
     
@@ -71,16 +71,17 @@ with col3:
 
     #if url is empty display enter a url
     if url == '':
-        st.write('Gebe die URL hier ein und drücke Start')
+        st.write('Gebe die URL hier ein und drücke "Start"')
 
     #if the url does not start with https://www.youtube.com/watch?v=
     if url.startswith('https://www.youtube.com/watch?v='):
-        video_id = url.split('=')[1]
-        
-    if url.startswith('https://youtu.be/'):
-        video_id = url.split('be/')[1]     
+        video_id = url.split('=')[1] 
 
-     
+    if url.startswith('https://youtu.be'):
+        video_id = url.split('be/')[1] 
+
+    if 'https://www.youtu' not in url:
+        st.write('Gebe eine gültige URL ein!')   
     
 
    
@@ -115,8 +116,10 @@ chat = pytchat.create(video_id, interruptable=False)
 
 
 def plot():
-    st.write('Finished')
-
+    st.write('Fertig! Hier ist das Ergebnis:')
+    st.write('    ')
+    st.write('    ')
+    
     st.write('Wie viele individuelle user kommentierten?')
     st.write(len(authors))
     st.write('    ')
@@ -132,20 +135,22 @@ def plot():
     st.write('    ')
     st.write('    ')
 
-    st.write('Verlauf der Anzahl der Nachrichten pro Minute')
+    st.write('Verlauf der Anzahl der Nachrichten pro Minute:')
     occurences = get_minutes(timestamps)
     #plot the occurences with streamlit
-    create_plotly_figure(get_minutes(occurences))
+    #st.write(occurences)
+    st.plotly_chart(create_plotly_figure(occurences))
 
 
     st.write('    ')
     st.write('    ')
     st.write('    ')
 
-    st.write('In welcher Minute lachte der chat am meisten? (haha, lol, lel, emojis, xD, ...)')
+    st.write('In welcher Minute lachte der YouTube chat am meisten? (haha, lol, lel, emojis, xD, ...)')
     laugh_occurences = get_minutes(laugh)
     #plot the laugh_occurences with streamlit
-    create_plotly_figure(get_minutes(laugh_occurences))
+    #st.write(laugh_occurences)
+    st.plotly_chart(create_plotly_figure(laugh_occurences))
 
     
 
@@ -162,9 +167,9 @@ def create_plotly_figure(occurences):
 
     #add some layout features
     fig.update_layout(
-        title_text='Minutes of the day',
-        xaxis_title_text='Minutes',
-        yaxis_title_text='Count'
+        #title_text='Minutes of the day',
+        xaxis_title_text='In welcher Minute',
+        yaxis_title_text='Anzahl der Nachrichten'
     )
 
     return fig    
@@ -181,14 +186,18 @@ def runChat():
 
   global chat
   
+  st.write('Daten werden gesammelt... ')
+  
+  #st.image('https://media.giphy.com/media/l46Cy1rHbQ92uuLXa/giphy.gif')
+
+
   while chat.is_alive():
         
 
-        st.write('Collecting data... ')
-        st.write('Let the stream play until it ends and then you get the results ')
+        
         #display a gif
         #data_load_state = st.text('Please wait...')
-        #st.image('https://media.giphy.com/media/l46Cy1rHbQ92uuLXa/giphy.gif')
+        
         
 
         
@@ -235,15 +244,16 @@ def runChat():
                 laugh.append(c.elapsedTime)
 
 
+  
+  
 
 
 
             
-                
 
 
 
-        
+         
 
 
 
@@ -260,3 +270,33 @@ with col3:
 
 
 
+
+
+
+
+footer="""<style>
+a:link , a:visited{
+color: red;
+background-color: transparent;
+text-decoration: underline;
+}
+a:hover,  a:active {
+color: blue;
+background-color: transparent;
+text-decoration: underline;
+}
+.footer {
+position: fixed;
+left: 0;
+bottom: 0;
+width: 100%;
+background-color: transparent;
+color: grey;
+text-align: center;
+}
+</style>
+<div class="footer">
+<p>Entwickelt mit ❤️  von <a style='display: block; text-align: center;' href="https://www.instagram.com/max_mnemo/" target="_blank">Max Mnemo </a></p>
+</div>
+"""
+st.markdown(footer,unsafe_allow_html=True)
