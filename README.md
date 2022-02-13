@@ -16,7 +16,7 @@ Demo (Still working on it) --> https://share.streamlit.io/maximilianfreitag/yt-l
 <!-- Current bugs -->
 ## Current bugs
 
-Sometimes the program won't work when the livestream contains too many messages that occured before the main stream started. Within the graph these messages will be displayed as a negative integer. So -2 means, 2 minutes prior to the official start of the stream people were exchanging messages.  
+Sometimes the program won't work when the livestream contains too many messages that occured before the main stream started. Within the graph these messages will be displayed as a negative integer. E.g. in the above image you see that the first messages came in 8 minutes before the main stream started, thus -8.  
 
 
 <br />
