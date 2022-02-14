@@ -9,7 +9,7 @@ Demo (still working on it) --> https://share.streamlit.io/maximilianfreitag/yt-l
 
 ### Current bugs: 
 - When people are writing before the main stream started the minutes are counted as negative integers -4,-3,-2 ... this can lead to problems sometimes.    
-- The web version is collecting the data for too long sometimes if you test out multiple URLs 
+- The web version is collecting the data for too long sometimes if you test out multiple URLs or if you re-run the code 
 
 
 
