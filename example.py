@@ -53,7 +53,8 @@ with col3:
     st.write('Die Analyse funktioniert nicht bei gerade laufenden livestreams! ')
     
     st.write('Hier ist eine Beispiel URL eines streams der 60 Minuten ging. Ich habe leider keinen kürzeren stream gefunden...')
-    
+    st.write(' ')
+    st.write(' ')
     st.code('https://www.youtube.com/watch?v=e7EVbT0W9uU')
     
     st.write('Wenn du deine URL eingibst und auf "Start" drückst, wird die Analyse gestartet. Die Analyse läuft solange bis der stream einmal komplett durchgelaufen ist. Sprich, wenn der stream 2 Stunden ging, muss man 2 Stunden auf das Ergebnis warten.')
