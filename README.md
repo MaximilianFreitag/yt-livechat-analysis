@@ -1,4 +1,4 @@
-#Paste in a URL of a already finished livestream and see where the most laughed occured
+## Paste in a URL of a already finished livestream and see where the most laughed occured
 
 Demo (still working on it) --> https://share.streamlit.io/maximilianfreitag/yt-livechat-analysis/main/example.py
 
