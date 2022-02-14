@@ -27,7 +27,7 @@ __________________________________________________
 
 2. cd into the folder "yt-livestream" on your desktop
    ```sh
-   import zufallsworte as zufall
+   cd yt-livestream
    ```
    
 3. Run the file "example.py" in the folder with:
