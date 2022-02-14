@@ -12,6 +12,33 @@ Demo (still working on it) --> https://share.streamlit.io/maximilianfreitag/yt-l
 
 __________________________________________________
 
+
+<!-- GETTING STARTED -->
+## Getting Started
+
+
+1. Git clone the repository to your Desktop and install streamlit and pytchat via pip
+   ```sh
+   git clone https://github.com/MaximilianFreitag/yt-livechat-analysis.git
+   pip install streamlit
+   pip install pytchat
+   ```
+
+2. cd into the folder "yt-livestream"
+   ```sh
+   import zufallsworte as zufall
+   ```
+   
+3. Run the file "example.py" in the folder with:
+   ```sh
+   streamlit run example.py
+   ```
+
+4. The file now runs locally on your machine
+
+__________________________________________________
+
+
 ### Current bugs: 
 - When people are writing before the main stream started the minutes are counted as negative integers -4,-3,-2 ... this can lead to problems sometimes.    
 - The web version is collecting the data for too long sometimes if you test out multiple URLs or if you re-run the code 
