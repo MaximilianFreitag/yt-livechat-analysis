@@ -37,8 +37,11 @@ __________________________________________________
 
 4. The file now runs locally on your machine
 
+<br>
+
 __________________________________________________
 
+<br>
 
 ### Current bugs: 
 - When people are writing before the main stream started the minutes are counted as negative integers -4,-3,-2 ... this can lead to problems sometimes.    
@@ -49,6 +52,8 @@ __________________________________________________
 <br>
 __________________________________________________
 
+
+<br>
 
 ### To-Do list of things that I want to add as a functionality
 
