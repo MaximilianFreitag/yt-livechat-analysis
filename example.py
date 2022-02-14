@@ -17,6 +17,16 @@ st.set_page_config(
 
 
 
+hide_streamlit_style = """
+            <style>
+            #MainMenu {visibility: hidden;}
+            footer {visibility: hidden;}
+            </style>
+            """
+st.markdown(hide_streamlit_style, unsafe_allow_html=True) 
+
+
+
 
 
 
@@ -51,14 +61,11 @@ with col3:
 
     st.write('Gebe eine URL eines bereits beendeten YouTube livestream und vergewissere dich, dass die Wiedergabe des chats aktiviert wurde. ')
     st.write('Die Analyse funktioniert nicht bei gerade laufenden livestreams! ')
-    
     st.write('Hier ist eine Beispiel URL eines streams der 60 Minuten ging. Ich habe leider keinen kürzeren stream gefunden...')
-    
     
     st.code('https://www.youtube.com/watch?v=e7EVbT0W9uU')
     
     st.write('Wenn du deine URL eingibst und auf "Start" drückst, wird die Analyse gestartet. Die Analyse läuft solange bis der stream einmal komplett durchgelaufen ist. Sprich, wenn der stream 2 Stunden ging, muss man 2 Stunden auf das Ergebnis warten.')
-    st.write(' ')
     st.markdown("***")
     
     #text box input + video url
@@ -282,7 +289,7 @@ text-align: center;
 }
 </style>
 <div class="footer">
-<p>Entwickelt mit ❤️  an einem Sonntag von <a style='display: block; text-align: center;' href="https://www.instagram.com/max_mnemo/" target="_blank">Max Mnemo </a></p>
+<p>Entwickelt mit ❤️  von <a style='display: block; text-align: center;' href="https://www.instagram.com/max_mnemo/" target="_blank">Max Mnemo </a></p>
 </div>
 """
 st.markdown(footer,unsafe_allow_html=True)
