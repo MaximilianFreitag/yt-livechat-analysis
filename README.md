@@ -53,7 +53,7 @@ __________________________________________________
 <br>
 __________________________________________________
 
-
+<br>
 <br>
 
 ### To-Do list: (Things that I want to add as a functionality)
@@ -64,8 +64,9 @@ __________________________________________________
 - [ ] Make the theme of the app white, currently it depends on the users settings if the app appears in light or dark mode. Adding a .config file changes that
 
 
-
 <br>
+<br>
+
 __________________________________________________
 
 <br>
