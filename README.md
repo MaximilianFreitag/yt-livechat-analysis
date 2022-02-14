@@ -57,7 +57,7 @@ __________________________________________________
 
 ### To-Do list of things that I want to add as a functionality
 
-- [ ] I want users to input a custom word e.g. spam-eggs that will be displayed in a sparate graph for the results
+- [ ] I want to add additional text boxes for the user to input custom words e.g. spam ... eggs that will be displayed in a sparate graph for the results. So the user sees "Oh, the word spam was mentioned 42 times in minute 33 and eggs was mentioned 7 times in minute 55".
 - [ ] I want to add spacing for the mobile version 
 
 
