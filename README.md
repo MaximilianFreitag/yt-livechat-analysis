@@ -14,7 +14,7 @@ __________________________________________________
 
 
 <!-- GETTING STARTED -->
-## Getting Started
+## Running the app locally on your computer
 
 
 1. Git clone the repository to your Desktop and install streamlit and the necessary modules pytchat and plotly via pip
