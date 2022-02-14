@@ -55,10 +55,11 @@ __________________________________________________
 
 <br>
 
-### To-Do list of things that I want to add as a functionality
+### To-Do list: (Things that I want to add as a functionality)
 
 - [ ] I want to add additional text boxes for the user to input custom words e.g. spam ... eggs that will be displayed in a sparate graph for the results. So the user sees "Oh, the word spam was mentioned 42 times in minute 33 and eggs was mentioned 7 times in minute 55".
 - [ ] I want to add spacing for the mobile version 
+- [ ] Add a giphy GIF for the loading state 
 
 
 
