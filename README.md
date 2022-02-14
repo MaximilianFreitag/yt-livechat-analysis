@@ -17,14 +17,15 @@ __________________________________________________
 ## Getting Started
 
 
-1. Git clone the repository to your Desktop and install streamlit and pytchat via pip
+1. Git clone the repository to your Desktop and install streamlit and the necessary modules pytchat and plotly via pip
    ```sh
    git clone https://github.com/MaximilianFreitag/yt-livechat-analysis.git
    pip install streamlit
    pip install pytchat
+   pip install plotly
    ```
 
-2. cd into the folder "yt-livestream"
+2. cd into the folder "yt-livestream" on your desktop
    ```sh
    import zufallsworte as zufall
    ```
