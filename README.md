@@ -58,7 +58,7 @@ __________________________________________________
 ### To-Do list of things that I want to add as a functionality
 
 - [ ] I want users to input a custom word e.g. spam-eggs that will be displayed in a sparate graph for the results
-- [ ] I want to make the mobile version more 
+- [ ] I want to add spacing for the mobile version 
 
 
 
