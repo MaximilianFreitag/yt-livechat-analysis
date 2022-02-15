@@ -59,8 +59,8 @@ with col5:
 with col3:
     st.title('Youtube Livestream Analyse')
 
-    st.write('Gebe eine URL eines bereits beendeten YouTube livestream und vergewissere dich, dass die Wiedergabe des chats aktiviert wurde. ')
-    st.write('Die Analyse funktioniert nicht bei gerade laufenden livestreams! ')
+    st.write('Gebe eine URL eines bereits beendeten YouTube livestream ein und vergewissere dich, dass die Wiedergabe des chats aktiviert wurde. ')
+    st.write('Die Analyse funktioniert NICHT bei gerade laufenden livestreams! ')
     st.write('Hier ist eine Beispiel URL eines streams der 125 Minuten ging. Copy Paste den folgenden Link, wenn du einfach nur diese app austesten möchtest')
     
     st.code('https://youtu.be/WPvWiTeZ858')
