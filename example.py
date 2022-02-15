@@ -5,7 +5,7 @@ import pytchat as pytchat
 import matplotlib.pyplot as plt
 #import plotly
 import plotly.graph_objects as go
-
+from PIL import Image
 
 
 
