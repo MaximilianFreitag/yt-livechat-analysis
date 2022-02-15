@@ -70,7 +70,7 @@ with col3:
     
     st.code('https://youtu.be/WPvWiTeZ858')
     
-    st.write('Wenn du deine eigene URL eingibst und auf "Start" drückst, wird die Analyse gestartet. Du kannst den tab im Hintergrund laufen lassen. Falls etwas schief läuft einfach die Seite aktualisieren und nochmal versuchen.')
+    st.write('Wenn du deine eigene URL eingibst und auf "Start" drückst, wird die Analyse gestartet. Der stream muss einmal komplett durchlaufen. Falls etwas schief läuft einfach die Seite aktualisieren und nochmal versuchen.')
     st.markdown("***")
     
     #text box input + video url
