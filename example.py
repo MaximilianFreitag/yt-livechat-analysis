@@ -122,7 +122,7 @@ chat = pytchat.create(video_id, interruptable=False)
 
 
 def plot():
-    st.write('Fertig! Hier ist das Ergebnis:')
+    st.write('Hier ist das Ergebnis:')
     st.write('    ')
     st.write('    ')
     
