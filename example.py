@@ -33,6 +33,7 @@ st.markdown(hide_streamlit_style, unsafe_allow_html=True)
 
 #START VALUES
 authors = []
+all_authors = []
 messages = []
 supporters = []
 timestamps = []
@@ -134,13 +135,20 @@ chat = pytchat.create(video_id, interruptable=False)
 def plot():
     st.markdown("***")    
     st.write('Hier ist das Ergebnis:')
-    st.markdown("***")
+    
     st.write('Wie viele individuelle user kommentierten?')
     st.write(len(authors))
+
     st.markdown("***")
     st.write('Gesamtzahl aller Nachrichten')
     st.write(len(messages))
+        
     st.markdown("***")
+    #output the string that appears most often in all_authors
+    st.write('User der am meisten kommentiert hat')
+    st.write(max(all_authors, key=all_authors.count))
+    st.markdown("***")
+
     st.write('Anwesende mods')
     #if the mod list is empty
     if len(mods) == 0:
@@ -148,7 +156,7 @@ def plot():
     else:
         #only output unique values
         st.write(list(set(mods)))
-
+        
     st.markdown("***")
 
     st.write('Verlauf der Anzahl der Nachrichten pro Minute:')
@@ -223,8 +231,8 @@ def runChat():
             #time_elapsed = format_time(time.time() - start_time)
             timestamps.append(c.elapsedTime)
             
-            
-
+            all_authors.append(c.author.name)
+        
 
             #UNIQUE AUTHORS
             if c.author.name not in authors:
@@ -267,11 +275,16 @@ def runChat():
 
 with col3:
     st.write(' ')
+    
     if st.button('Start', key="1"):
-        runChat()
-        #wait 2 seconds
-        time.sleep(2)
-        plot()
+        with st.spinner('Daten werden gesammelt...'):
+            runChat()
+            #wait 2 seconds
+            time.sleep(1)
+            plot()
+
+            st.success('Fertig!')        
+
 
 
 
