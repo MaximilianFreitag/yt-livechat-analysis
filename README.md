@@ -64,6 +64,8 @@ __________________________________________________
 - [ ] Add a giphy GIF for the loading state 
 - [ ] Make the theme of the app white, currently it depends on the users settings if the app appears in light or dark mode. Adding a .config file changes that
 - [ ] Getting rid of the timestamp when the user pastes in a URL + timestamp ... URL + timestamp (youtube.com/watch?v=e7EVbT0W9uU&t=2195s) ... (ends with &t=2195s)
+- [ ] Hinzufügen von einem Hyperlink mit einem time stamp, der die Stelle mit den meisten Kommentaren markiert
+
 
 
 <br>
