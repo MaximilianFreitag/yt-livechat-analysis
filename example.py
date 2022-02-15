@@ -89,7 +89,7 @@ with col3:
     #if url is empty display enter a url
     if url == '':
         st.write('Gebe die URL hier ein und drücke "Start"')
-        video_id = ' '
+        video_id = 'QH2-TGUlwu4'
 
     #if the url does not start with https://www.youtube.com/watch?v=
     if url.startswith('https://www.youtube.com/watch?v='):
