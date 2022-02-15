@@ -241,7 +241,7 @@ def runChat():
 ##########################################################################################################################################                
                 
                 messages.append(c.message)
-                st.write(f" {c.author.name} // {c.message} // {c.elapsedTime} // {c.amountString}")
+                #st.write(f" {c.author.name} // {c.message} // {c.elapsedTime} // {c.amountString}")
                 
 
                 
