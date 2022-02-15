@@ -132,19 +132,15 @@ chat = pytchat.create(video_id, interruptable=False)
 
 
 def plot():
+    st.markdown("***")    
     st.write('Hier ist das Ergebnis:')
-    st.write('    ')
-    st.write('    ')
-    
+    st.markdown("***")
     st.write('Wie viele individuelle user kommentierten?')
     st.write(len(authors))
-    st.write('    ')
+    st.markdown("***")
     st.write('Gesamtzahl aller Nachrichten')
     st.write(len(messages))
-    st.write('    ')
-    st.write('    ')
-    st.write('    ')
-
+    st.markdown("***")
     st.write('Anwesende mods')
     #if the mod list is empty
     if len(mods) == 0:
@@ -153,10 +149,7 @@ def plot():
         #only output unique values
         st.write(list(set(mods)))
 
-
-    st.write('    ')
-    st.write('    ')
-    st.write('    ')
+    st.markdown("***")
 
     st.write('Verlauf der Anzahl der Nachrichten pro Minute:')
     occurences = get_minutes(timestamps)
@@ -165,11 +158,7 @@ def plot():
     st.plotly_chart(create_plotly_figure(occurences))
     #st.write(occurences)
 
-
-
-    st.write('    ')
-    st.write('    ')
-    st.write('    ')
+    st.markdown("***")
 
     st.write('In welcher Minute lachte der YouTube chat am meisten? (haha, lol, lel, emojis, xD, ...)')
     laugh_occurences = get_minutes(laugh)
