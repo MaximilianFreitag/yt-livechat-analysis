@@ -50,12 +50,22 @@ liveChat = None
 col1, col2, col3, col4, col5 = st.columns([1,1,5,1,1])
 
 
+#These columns ensure that the app is centered and compatible on mobile
 with col1:
         st.write("")
 
-with col5:
+with col2:
         st.write("")        
 
+with col4:
+        st.write("")  
+
+with col5:
+        st.write("")  
+
+        
+        
+        
 
 with col3:
     st.title('Youtube Livestream Analyse')
