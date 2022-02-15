@@ -45,8 +45,9 @@ __________________________________________________
 
 ### Current bugs: 🐞
 
+- The web version is either collecting the data for too long or it outputs the results within a a few seconds... and I don't know what causes this behaviour 
 - When people are writing before the main stream started the minutes are counted as negative integers -4,-3,-2 ... this can lead to problems sometimes.    
-- The web version is collecting the data for too long sometimes or even stops the script if you test out multiple URLs or if you re-run the code 
+
 
 
 
