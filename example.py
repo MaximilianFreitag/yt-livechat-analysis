@@ -207,9 +207,8 @@ def create_plotly_figure(occurences):
 def runChat():
 
   global chat
-  
-  st.write('Daten werden gesammelt... ')
-  
+ 
+  #Adding a GIF?
   #st.image('https://media.giphy.com/media/l46Cy1rHbQ92uuLXa/giphy.gif')
 
 
