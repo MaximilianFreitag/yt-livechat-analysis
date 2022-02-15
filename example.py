@@ -6,6 +6,7 @@ import matplotlib.pyplot as plt
 #import plotly
 import plotly.graph_objects as go
 from PIL import Image
+import time as time
 
 
 
@@ -69,7 +70,7 @@ with col3:
     
     st.code('https://youtu.be/WPvWiTeZ858')
     
-    st.write('Wenn du deine eigene URL eingibst und auf "Start" drückst, wird die Analyse gestartet. Du kannst den tab im Hintergrund laufen lassen. Falls etwas schief läuft einfach die Seite aktualisieren und nochmal versuchen.')
+    st.write('Wenn du deine eigene URL eingibst und auf "Start" drückst, wird die Analyse gestartet. Wenn der stream einmal durchgelaufen ist wird das Ergebnis angezeigt. Lass das Programm einfach im Hintergrund laufen. Falls etwas schief läuft einfach die Seite aktualisieren und nochmal versuchen.')
     st.markdown("***")
     
     #text box input + video url
@@ -78,15 +79,16 @@ with col3:
     #if url is empty display enter a url
     if url == '':
         st.write('Gebe die URL hier ein und drücke "Start"')
-        video_id = 'https://www.youtube.com/watch?v=e7EVbT0W9uU'
+        video_id = ' '
 
     #if the url does not start with https://www.youtube.com/watch?v=
     if url.startswith('https://www.youtube.com/watch?v='):
         video_id = url.split('=')[1] 
+        st.write(video_id)
 
     if url.startswith('https://youtu.be'):
         video_id = url.split('be/')[1] 
-
+        st.write(video_id)
     
    
     
@@ -261,6 +263,8 @@ with col3:
     st.write(' ')
     if st.button('Start', key="1"):
         runChat()
+        #wait 2 seconds
+        time.sleep(2)
         plot()
 
 
