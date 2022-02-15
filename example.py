@@ -84,15 +84,12 @@ with col3:
     #if the url does not start with https://www.youtube.com/watch?v=
     if url.startswith('https://www.youtube.com/watch?v='):
         video_id = url.split('=')[1] 
-        st.write(video_id)
+        #st.write(video_id)
 
     if url.startswith('https://youtu.be'):
         video_id = url.split('be/')[1] 
-        st.write(video_id)
+        #st.write(video_id)
     
-    #if there is a '&t=' in the url 
-    if '&t=' in url:
-        st.write('Die URL beinhaltet einen time stamp. Bitte lösche diesen aus der URL')
    
     
 
