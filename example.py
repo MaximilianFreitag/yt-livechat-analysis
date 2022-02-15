@@ -61,11 +61,11 @@ with col3:
 
     st.write('Gebe eine URL eines bereits beendeten YouTube livestream und vergewissere dich, dass die Wiedergabe des chats aktiviert wurde. ')
     st.write('Die Analyse funktioniert nicht bei gerade laufenden livestreams! ')
-    st.write('Hier ist eine Beispiel URL eines streams der 60 Minuten ging. Ich habe leider keinen kürzeren stream gefunden...')
+    st.write('Hier ist eine Beispiel URL eines streams der 125 Minuten ging. Copy Paste den folgenden Link, wenn du einfach nur diese app austesten möchtest')
     
-    st.code('https://www.youtube.com/watch?v=e7EVbT0W9uU')
+    st.code('https://youtu.be/WPvWiTeZ858')
     
-    st.write('Wenn du deine URL eingibst und auf "Start" drückst, wird die Analyse gestartet. Die Analyse läuft solange bis der stream einmal komplett durchgelaufen ist. Sprich, wenn der stream 2 Stunden ging, muss man 2 Stunden auf das Ergebnis warten.')
+    st.write('Wenn du deine eigene URL eingibst und auf "Start" drückst, wird die Analyse gestartet. Du kannst den tab im Hintergrund laufen lassen. Falls etwas schief läuft einfach die Seite aktualisieren und nochmal versuchen.')
     st.markdown("***")
     
     #text box input + video url
