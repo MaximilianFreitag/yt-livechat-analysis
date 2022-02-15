@@ -90,6 +90,9 @@ with col3:
         video_id = url.split('be/')[1] 
         st.write(video_id)
     
+    #if there is a '&t=' in the url 
+    if '&t=' in url:
+        st.write('Die URL beinhaltet einen time stamp. Bitte lösche diesen aus der URL')
    
     
 
@@ -142,7 +145,7 @@ def plot():
     else:
         #only output unique values
         st.write(list(set(mods)))
-        
+
 
     st.write('    ')
     st.write('    ')
