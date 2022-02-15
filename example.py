@@ -70,7 +70,7 @@ with col3:
     
     st.code('https://youtu.be/WPvWiTeZ858')
     
-    st.write('Wenn du deine eigene URL eingibst und auf "Start" drückst, wird die Analyse gestartet. Wenn der stream einmal durchgelaufen ist wird das Ergebnis angezeigt. Lass das Programm einfach im Hintergrund laufen. Falls etwas schief läuft einfach die Seite aktualisieren und nochmal versuchen.')
+    st.write('Wenn du deine eigene URL eingibst und auf "Start" drückst, wird die Analyse gestartet. Du kannst den tab im Hintergrund laufen lassen. Falls etwas schief läuft einfach die Seite aktualisieren und nochmal versuchen.')
     st.markdown("***")
     
     #text box input + video url
@@ -136,7 +136,14 @@ def plot():
     st.write('    ')
 
     st.write('Anwesende mods')
-    st.write((mods))
+    #if the mod list is empty
+    if len(mods) == 0:
+        st.write('Es waren keine mods anwesend')
+    else:
+        #only output unique values
+        st.write(list(set(mods)))
+        
+
     st.write('    ')
     st.write('    ')
     st.write('    ')
@@ -224,7 +231,7 @@ def runChat():
             if c.author.name not in authors:
                 authors.append(c.author.name)
             
-            if c.author.isChatModerator == True and c.author.isChatModerator not in mods:
+            if c.author.isChatModerator == True:
                 mods.append(c.author.name)
                 
 
