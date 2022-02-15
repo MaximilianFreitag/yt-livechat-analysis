@@ -62,7 +62,7 @@ __________________________________________________
 - [ ] I want to add spacing for the mobile version. Currently just writing something like st.write('  ') or using line breaks like '<br> 'doesn't work for mobile, only for web 
 - [ ] Add a giphy GIF for the loading state 
 - [ ] Make the theme of the app white, currently it depends on the users settings if the app appears in light or dark mode. Adding a .config file changes that
-- [ ] Getting rid of the timestamp when the user paste in a URL + timestamp ... URL + timestamp (youtube.com/watch?v=e7EVbT0W9uU&t=2195s) ... (ends with &t=2195s)
+- [ ] Getting rid of the timestamp when the user pastes in a URL + timestamp ... URL + timestamp (youtube.com/watch?v=e7EVbT0W9uU&t=2195s) ... (ends with &t=2195s)
 
 
 <br>
