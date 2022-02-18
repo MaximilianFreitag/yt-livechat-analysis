@@ -4,7 +4,7 @@ __________________________________________________
 
 ### Paste in a URL of a already finished livestream and see where the most laughed occured
 
-Demo, a small app (Still working on it) --> https://share.streamlit.io/maximilianfreitag/yt-livechat-analysis/main/example.py
+Demo --> https://share.streamlit.io/maximilianfreitag/yt-livechat-analysis/main/example.py
 
 Google Colab File, same code but a "ugly" UI (Works all the time) --> https://colab.research.google.com/drive/1lUkc92nJoa-VO8-1whUx5LT_XyD_pzrW?usp=sharing 
 
