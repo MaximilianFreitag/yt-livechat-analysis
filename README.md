@@ -69,7 +69,6 @@ __________________________________________________
 - [ ] Hinzufügen von einem Hyperlink mit einem time stamp, der die Stelle mit den meisten Kommentaren markiert
 
 
-
 <br>
 <br>
 
