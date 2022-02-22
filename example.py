@@ -45,7 +45,7 @@ mods = []
 wort1 = []
 wort2 = []
 wort3 = []
-
+five_messages = []
 
 
 
@@ -302,7 +302,7 @@ def create_plotly_figure(occurences):
     #add some layout features
     fig.update_layout(
         #title_text='Minutes of the day',
-        xaxis_title_text='In welcher Minute',
+        xaxis_title_text='In welcher Minute (120 bedeutet 1h 20min)',
         yaxis_title_text='Anzahl der Nachrichten'
     )
 
@@ -319,7 +319,8 @@ def create_plotly_figure(occurences):
 def main():
 
   global chat
- 
+  _emp = st.empty()
+  
   #Adding a GIF?
   #st.image('https://media.giphy.com/media/l46Cy1rHbQ92uuLXa/giphy.gif')
 
@@ -345,8 +346,22 @@ def main():
                 lowercase = c.message.lower()
                 messages_lower.append(lowercase)
 
+                five_messages.append(c.message)
+
                 #st.write(f" {c.author.name} // {c.message} // {c.elapsedTime} // {c.amountString}")
                 
+                
+                #display only the last 5 messages and use st.empty() to hide the rest
+                for x in five_messages:
+                    pos = five_messages.index(x)
+                    d = five_messages[pos:pos+5]
+                    if pos < 10:
+                        time.sleep(0.1)
+                        _emp.code(f" {c.author.name} // {c.message} // {c.elapsedTime} // {c.amountString}")
+
+
+
+
 ##########################################################################################################################################
 
                  #Alle Timestamps
