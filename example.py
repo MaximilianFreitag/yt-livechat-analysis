@@ -439,7 +439,6 @@ background-color: transparent;
 a:hover,  a:active {
 color: LightBlue;
 background-color: transparent;
-text-decoration: underline;
 }
 .footer {
 position: fixed;
