@@ -415,6 +415,10 @@ if __name__ == "__main__":
                 mods.clear()
                 supporters.clear()
                 
+                
+                st.write(wort1)
+                st.write(wort2)
+                st.write(wort3)
 
 
 
