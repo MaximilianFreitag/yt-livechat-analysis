@@ -47,9 +47,7 @@ __________________________________________________
 
 ### Current bugs: 🐞
 
-- The web version is either collecting the data for too long or it outputs the results within a a few seconds... and I don't know what causes this behaviour 
-- When people are writing before the main stream started the minutes are counted as negative integers -4,-3,-2 ... this can lead to problems sometimes.    
-
+- The web version isns't properly working. Running it locally works fine. Maybe pytchat has a module that only works on your local machine.  
 
 
 
@@ -61,7 +59,7 @@ __________________________________________________
 
 ### To-Do list: (Things that I want to add as a functionality)
 
-- [ ] I want to add additional text boxes for the user to input custom words e.g. spam ... eggs that will be displayed in a sparate graph for the results. So the user sees "Oh, the word spam was mentioned 42 times in minute 33 and eggs was mentioned 7 times in minute 55".
+- [x] I want to add additional text boxes for the user to input custom words e.g. spam ... eggs that will be displayed in a sparate graph for the results. So the user sees "Oh, the word spam was mentioned 42 times in minute 33 and eggs was mentioned 7 times in minute 55".
 - [ ] I want to add spacing for the mobile version. Currently just writing something like st.write('  ') or using line breaks like br 'doesn't work for mobile
 - [ ] Add a giphy GIF for the loading state 
 - [ ] Make the theme of the app white, currently it depends on the users settings if the app appears in light or dark mode. Adding a .config file changes that
