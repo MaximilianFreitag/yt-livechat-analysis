@@ -86,7 +86,7 @@ with col3:
     
     st.code('https://youtu.be/WPvWiTeZ858')
     
-    st.write('Wenn du deine eigene URL eingibst und auf "Start" drückst, wird die Analyse gestartet. Der stream muss einmal komplett durchlaufen. Falls etwas schief läuft einfach die Seite aktualisieren und nochmal versuchen.')
+    st.write('Wenn du deine eigene URL eingibst und auf "Start" drückst, wird die Analyse gestartet. Der stream muss einmal komplett durchlaufen. Falls etwas schief läuft besuche mein github. Dort habe ich eine google colab Version die immer funktioniert.')
     
     
 
@@ -453,7 +453,7 @@ text-align: center;
 }
 </style>
 <div class="footer">
-<p>Entwickelt mit ❤️  von <a style='display: block; text-align: center;' href="https://www.instagram.com/max_mnemo/" target="_blank">Max Mnemo </a></p>
+<p>Entwickelt mit ❤️  von <a style='display: block; text-align: center;' href="https://www.instagram.com/max_mnemo/" target="_blank">Max Mnemo </a> + <a style='display: block; text-align: center;' href="https://github.com/MaximilianFreitag/yt-livechat-analysis" target="_blank">Github </a></p>
 </div>
 """
 st.markdown(footer,unsafe_allow_html=True)
