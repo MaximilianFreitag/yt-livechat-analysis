@@ -48,7 +48,10 @@ __________________________________________________
 ### Current bugs: 🐞
 
 To-Do:
+
+- [ ] After 5 minutes runtime the web version app suddenly stops running/calculating things
 - [ ] Messages that were posted over one hour before the stream started are not properly handled by the get_minutes() function. E.g. the timestamp -2:12:42 will not be turned into -212 (desired output) by the function... -59:42 --> -59 .... -1:44:04 --> ??? doesn't work and it should return -144. As a result, the plot function ignores those values.
+
 
 
 
