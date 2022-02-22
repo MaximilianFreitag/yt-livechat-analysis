@@ -416,19 +416,15 @@ if __name__ == "__main__":
                 supporters.clear()
                 
                 
-                st.write(wort1)
-                st.write(wort2)
-                st.write(wort3)
-                st.write(messages)
-                st.write(authors)
-                st.write(timestamps)
+               
 
 
 
 
 
 
-
+        
+        
 
 
 footer="""<style>
