@@ -345,7 +345,7 @@ def main():
                 messages_lower.append(lowercase)
 
                 #IF YOU WANT TO SEE EACH MESSAGE REMOVE THE # IN THE NEXT LINE
-                #st.write(f" {c.author.name} // {c.message} // {c.elapsedTime} // {c.amountString}")
+                st.write(f" {c.author.name} // {c.message} // {c.elapsedTime} // {c.amountString}")
                 
 ##########################################################################################################################################
 
@@ -404,6 +404,7 @@ if __name__ == "__main__":
 
                 #set values from list back to 0
                 messages.clear()
+                messages_lower.clear()
                 timestamps.clear()
                 all_authors.clear()
                 wort1.clear()
