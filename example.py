@@ -127,7 +127,7 @@ with col3:
     st.markdown("***")
     
     #text box input + video url
-    url = st.text_input(" ", placeholder="https://www.youtube.com/watch?v=QH2-TGUlwu4")
+    url = st.text_input(" ", placeholder="https://youtu.be/Oh0kSPZzw5w")
 
     #if url is empty display enter a url
     if url == '':
