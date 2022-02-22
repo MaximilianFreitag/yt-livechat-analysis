@@ -86,7 +86,7 @@ with col3:
     
     st.code('https://youtu.be/WPvWiTeZ858')
     
-    st.write('Wenn du deine eigene URL eingibst und auf "Start" drückst, wird die Analyse gestartet. Der stream muss einmal komplett durchlaufen. Falls etwas schief läuft besuche mein github. Dort habe ich eine google colab Version die immer funktioniert.')
+    st.write('Wenn du deine eigene URL eingibst und auf "Start" drückst, wird die Analyse gestartet. Der stream muss einmal komplett durchlaufen. Falls etwas schief läuft einfach die Seite aktualisieren und nochmal versuchen.')
     
     
 
@@ -127,12 +127,12 @@ with col3:
     st.markdown("***")
     
     #text box input + video url
-    url = st.text_input("", placeholder="https://youtu.be/Oh0kSPZzw5w")
+    url = st.text_input(" ", placeholder="https://www.youtube.com/watch?v=QH2-TGUlwu4")
 
     #if url is empty display enter a url
     if url == '':
         st.write('Gebe die URL hier ein und drücke "Start"')
-        #video_id = 'QH2-TGUlwu4'
+        video_id = 'QH2-TGUlwu4'
 
     #if the url does not start with https://www.youtube.com/watch?v=
     if url.startswith('https://www.youtube.com/watch?v='):
@@ -225,7 +225,7 @@ def plot():
 
 
     def wort_eins():
-        st.markdown("***")
+        
         if 'helloworldhelloworldhelloworldhelloworldhelloworldhelloworldhelloworldhelloworld' in wort1:
             st.write(' ')
             pass
@@ -260,6 +260,7 @@ def plot():
             wort2_occurences = get_minutes(wort2)
             st.plotly_chart(create_plotly_figure(wort2_occurences))
             st.markdown("***")
+            
 
     wort_zwei()
 
@@ -278,7 +279,7 @@ def plot():
             pass        
 
         else:
-            st.write(f' Häufigkeit von ... {wort_c} ... im zeitlichen Verlauf.')            
+            st.write(f' Häufigkeit von ... {wort_c} ... im zeitlichen Verlauf.')
             wort3_occurences = get_minutes(wort3)
             st.plotly_chart(create_plotly_figure(wort3_occurences))
             st.markdown("***")
@@ -344,8 +345,7 @@ def main():
                 lowercase = c.message.lower()
                 messages_lower.append(lowercase)
 
-                #IF YOU WANT TO SEE EACH MESSAGE REMOVE THE # IN THE NEXT LINE
-                st.write(f" {c.author.name} // {c.message} // {c.elapsedTime} // {c.amountString}")
+                #st.write(f" {c.author.name} // {c.message} // {c.elapsedTime} // {c.amountString}")
                 
 ##########################################################################################################################################
 
@@ -404,7 +404,6 @@ if __name__ == "__main__":
 
                 #set values from list back to 0
                 messages.clear()
-                messages_lower.clear()
                 timestamps.clear()
                 all_authors.clear()
                 wort1.clear()
@@ -414,27 +413,27 @@ if __name__ == "__main__":
                 authors.clear()
                 mods.clear()
                 supporters.clear()
-                st.write('Fertig1')
                 video_id = ''
-               
 
 
 
 
 
 
-        
-        
+
+
 
 
 footer="""<style>
 a:link , a:visited{
 color: red;
 background-color: transparent;
+text-decoration: underline;
 }
 a:hover,  a:active {
-color: LightBlue;
+color: blue;
 background-color: transparent;
+text-decoration: underline;
 }
 .footer {
 position: fixed;
@@ -447,7 +446,7 @@ text-align: center;
 }
 </style>
 <div class="footer">
-<p>Entwickelt mit ❤️  von <a style='display: inline-block; text-align: center;' href="https://www.instagram.com/max_mnemo/" target="_blank">Max Mnemo </a> + <a style='display: inline-block; text-align: center;' href="https://github.com/MaximilianFreitag/yt-livechat-analysis" target="_blank">Github Repo</a></p>
+<p>Entwickelt mit ❤️  von <a style='display: block; text-align: center;' href="https://www.instagram.com/max_mnemo/" target="_blank">Max Mnemo </a></p>
 </div>
 """
 st.markdown(footer,unsafe_allow_html=True)
