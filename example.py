@@ -96,7 +96,7 @@ with col3:
 
     with st.expander("Möchtest du die Häufigkeit von spezifischen Wörtern analysieren?"):
         #create a text input
-        st.write('Wenn du diesen Schritt auslassen möchtest, lasse die Felder leer.')
+        st.write('Wenn du diesen Schritt auslassen möchtest, lasse die Felder leer. Beachte: Falls du emojis tracken möchtest...Herz emoji wird zu... :heart: ... Gehe zu emojipedia.org und schau nach den shortcodes')
         
         wort_a = st.text_input('Wort 1')
         wort_a = wort_a.lower()
