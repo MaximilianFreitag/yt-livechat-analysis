@@ -59,7 +59,7 @@ __________________________________________________
 
 ### To-Do list: (Things that I want to add as a functionality)
 
-- [x] I want to add additional text boxes for the user to input custom words e.g. spam ... eggs that will be displayed in a sparate graph for the results. So the user sees "Oh, the word spam was mentioned 42 times in minute 33 and eggs was mentioned 7 times in minute 55".
+- [x] I want to add additional text boxes for the user to input custom words e.g. spam ... eggs ...that will be displayed in a sparate graph for the results. So the user sees "Oh, the word spam was mentioned 42 times in minute 33 and eggs was mentioned 7 times in minute 55".
 - [ ] I want to add spacing for the mobile version. Currently just writing something like st.write('  ') or using line breaks like br 'doesn't work for mobile
 - [ ] Add a giphy GIF for the loading state 
 - [ ] Make the theme of the app white, currently it depends on the users settings if the app appears in light or dark mode. Adding a .config file changes that
