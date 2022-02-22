@@ -84,7 +84,7 @@ with col3:
     st.write('Die Analyse funktioniert NICHT bei gerade laufenden livestreams! ')
     st.write('Hier ist eine Beispiel URL eines streams der 125 Minuten ging. Copy/Paste den folgenden Link, wenn du einfach nur diese app austesten möchtest')
     
-    #st.code('https://youtu.be/WPvWiTeZ858')
+    st.code('https://youtu.be/WPvWiTeZ858')
     
     st.write('Wenn du deine eigene URL eingibst und auf "Start" drückst, wird die Analyse gestartet. Der stream muss einmal komplett durchlaufen. Falls etwas schief läuft besuche mein github. Dort habe ich eine google colab Version die immer funktioniert.')
     
@@ -414,8 +414,8 @@ if __name__ == "__main__":
                 authors.clear()
                 mods.clear()
                 supporters.clear()
-                
-                
+                st.write('Fertig1')
+                video_id = ''
                
 
 
