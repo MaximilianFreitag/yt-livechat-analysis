@@ -438,7 +438,7 @@ background-color: transparent;
 text-decoration: underline;
 }
 a:hover,  a:active {
-color: blue;
+color: LightBlue;
 background-color: transparent;
 text-decoration: underline;
 }
