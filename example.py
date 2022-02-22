@@ -453,7 +453,7 @@ text-align: center;
 }
 </style>
 <div class="footer">
-<p>Entwickelt mit ❤️  von <a style='display: block; text-align: center;' href="https://www.instagram.com/max_mnemo/" target="_blank">Max Mnemo </a> + <a style='display: block; text-align: center;' href="https://github.com/MaximilianFreitag/yt-livechat-analysis" target="_blank">Github </a></p>
+<p>Entwickelt mit ❤️  von <a style='display: inline-block; text-align: center;' href="https://www.instagram.com/max_mnemo/" target="_blank">Max Mnemo </a> + <a style='display: block; text-align: center;' href="https://github.com/MaximilianFreitag/yt-livechat-analysis" target="_blank">Github </a></p>
 </div>
 """
 st.markdown(footer,unsafe_allow_html=True)
