@@ -47,7 +47,7 @@ __________________________________________________
 
 ### Current bugs: 🐞
 
-- The web version isns't properly working. Running it locally works fine. Maybe pytchat has a module that only works on your local machine.  
+- The web version isn't properly working. Running the code locally or in my google colab file works just fine. Maybe pytchat has a module that only works on your local machine.  
 
 
 
