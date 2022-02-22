@@ -344,7 +344,7 @@ def main():
                 lowercase = c.message.lower()
                 messages_lower.append(lowercase)
 
-                #st.write(f" {c.author.name} // {c.message} // {c.elapsedTime} // {c.amountString}")
+                st.write(f" {c.author.name} // {c.message} // {c.elapsedTime} // {c.amountString}")
                 
 ##########################################################################################################################################
 
