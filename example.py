@@ -238,7 +238,7 @@ def plot():
             st.write(f' Häufigkeit von ... {wort_a} ... im zeitlichen Verlauf.')
             wort1_occurences = get_minutes(wort1)
             st.plotly_chart(create_plotly_figure(wort1_occurences))
-            
+            st.markdown("***")
     
     wort_eins()
   
@@ -246,7 +246,7 @@ def plot():
 
 
     def wort_zwei():
-        st.markdown("***")
+        
         if 'helloworldhelloworldhelloworldhelloworldhelloworldhelloworldhelloworldhelloworld' in wort2:
             st.write(' ')
             pass
@@ -259,7 +259,7 @@ def plot():
             st.write(f' Häufigkeit von ... {wort_b} ... im zeitlichen Verlauf.')
             wort2_occurences = get_minutes(wort2)
             st.plotly_chart(create_plotly_figure(wort2_occurences))
-            
+            st.markdown("***")
 
     wort_zwei()
 
@@ -268,7 +268,7 @@ def plot():
 
 
     def wort_drei():
-        st.markdown("***")
+        
         if 'helloworldhelloworldhelloworldhelloworldhelloworldhelloworldhelloworldhelloworld' in wort3:
             st.write(' ')
             pass
@@ -281,7 +281,7 @@ def plot():
             st.write(f' Häufigkeit von ... {wort_c} ... im zeitlichen Verlauf.')            
             wort3_occurences = get_minutes(wort3)
             st.plotly_chart(create_plotly_figure(wort3_occurences))
-            
+            st.markdown("***")
 
     wort_drei()
 
