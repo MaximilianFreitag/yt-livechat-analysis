@@ -47,7 +47,7 @@ __________________________________________________
 
 ### Current bugs: 🐞
 
-- The web version isn't properly working. Running the code locally or in my google colab file works just fine. The only link that works on the web version is the one that I provided. Maybe pytchat has a module that only works on your local machine. Maybe I forgot to erase a variable within my code so that it only works for one specific URL   
+- The web version isn't properly working. Running the code locally or in my google colab file works just fine. Maybe pytchat is not meant to work on the web.  Maybe I forgot to erase a variable within my code so that it only works for one specific URL   
 
 
 
@@ -57,9 +57,10 @@ __________________________________________________
 <br>
 <br>
 
-### To-Do list: (Things that I want to add as a functionality)
+### To-Do list: (Things that I want to improve or add as a functionality)
 
 - [x] I want to add additional text boxes for the user to input custom words e.g. spam ... eggs ...that will be displayed in a sparate graph for the results. So the user sees "Oh, the word spam was mentioned 42 times in minute 33 and eggs was mentioned 7 times in minute 55".
+- [ ] Messages that were posted over one hour before the stream started are not properly handles by the get_minutes function
 - [ ] I want to add spacing for the mobile version. Currently just writing something like st.write('  ') or using line breaks like br 'doesn't work for mobile
 - [ ] Add a giphy GIF for the loading state or something visual for the loading state, maybe the most current 5 collected messages
 - [ ] Make the theme of the app white, currently it depends on the users settings if the app appears in light or dark mode. Adding a .config file changes that
