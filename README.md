@@ -61,10 +61,10 @@ __________________________________________________
 
 - [x] I want to add additional text boxes for the user to input custom words e.g. spam ... eggs ...that will be displayed in a sparate graph for the results. So the user sees "Oh, the word spam was mentioned 42 times in minute 33 and eggs was mentioned 7 times in minute 55".
 - [ ] I want to add spacing for the mobile version. Currently just writing something like st.write('  ') or using line breaks like br 'doesn't work for mobile
-- [ ] Add a giphy GIF for the loading state 
+- [ ] Add a giphy GIF for the loading state or something visual for the loading state, maybe the most current 5 collected messages
 - [ ] Make the theme of the app white, currently it depends on the users settings if the app appears in light or dark mode. Adding a .config file changes that
 - [ ] Getting rid of the timestamp when the user pastes in a URL + timestamp ... URL + timestamp (youtube.com/watch?v=e7EVbT0W9uU&t=2195s) ... (ends with &t=2195s)
-- [ ] Hinzufügen von einem Hyperlink mit einem time stamp, der die Stelle mit den meisten Kommentaren markiert
+- [ ] Add a hyperlink to each graph, e.g. This is where the most laughs occured --> https:// ....timestamp
 
 
 <br>
