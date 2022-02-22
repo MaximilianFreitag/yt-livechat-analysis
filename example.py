@@ -226,11 +226,11 @@ def plot():
 
     def wort_eins():
         st.markdown("***")
-        if len(wort1) == 0:
-            st.write(f' {wort_a} ...wurde von keinem user geschrieben')
+        if 'helloworldhelloworldhelloworldhelloworldhelloworldhelloworldhelloworldhelloworld' in wort1:
+            st.write(' ')
             pass
 
-        elif 'helloworldhelloworldhelloworldhelloworldhelloworldhelloworldhelloworldhelloworld' not in wort1 and len(wort1) == 0:
+        elif 'helloworldhelloworldhelloworldhelloworldhelloworldhelloworldhelloworldhelloworld' not in wort1 and len(wort1) > 0:
             st.write(f' ... {wort_a} ...wurde von keinem user geschrieben')
             pass
 
@@ -247,11 +247,11 @@ def plot():
 
     def wort_zwei():
         st.markdown("***")
-        if 'helloworldhelloworldhelloworldhelloworldhelloworldhelloworldhelloworldhelloworld' in wort3:
+        if 'helloworldhelloworldhelloworldhelloworldhelloworldhelloworldhelloworldhelloworld' in wort2:
             st.write(' ')
             pass
 
-        elif 'helloworldhelloworldhelloworldhelloworldhelloworldhelloworldhelloworldhelloworld' not in wort2 and len(wort2) == 0:
+        elif 'helloworldhelloworldhelloworldhelloworldhelloworldhelloworldhelloworldhelloworld' not in wort2 and len(wort2) > 0:
             st.write(f' ... {wort_b} ...wurde von keinem user geschrieben')
             pass
 
@@ -273,12 +273,12 @@ def plot():
             st.write(' ')
             pass
 
-        elif 'helloworldhelloworldhelloworldhelloworldhelloworldhelloworldhelloworldhelloworld' not in wort3 and len(wort3) == 0:
+        elif 'helloworldhelloworldhelloworldhelloworldhelloworldhelloworldhelloworldhelloworld' not in wort3 and len(wort3) > 0:
             st.write(f' ... {wort_c} ...wurde von keinem user geschrieben')
             pass        
 
         else:
-            st.write(f' Häufigkeit von ... {wort_c} ... im zeitlichen Verlauf.')
+            st.write(f' Häufigkeit von ... {wort_c} ... im zeitlichen Verlauf.')            
             wort3_occurences = get_minutes(wort3)
             st.plotly_chart(create_plotly_figure(wort3_occurences))
             
