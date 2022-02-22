@@ -230,7 +230,7 @@ def plot():
             st.write(' ')
             pass
 
-        elif 'helloworldhelloworldhelloworldhelloworldhelloworldhelloworldhelloworldhelloworld' not in wort1 and len(wort1) > 0:
+        elif 'helloworldhelloworldhelloworldhelloworldhelloworldhelloworldhelloworldhelloworld' not in wort1 and len(wort1) == 0:
             st.write(f' ... {wort_a} ...wurde von keinem user geschrieben')
             pass
 
@@ -251,7 +251,7 @@ def plot():
             st.write(' ')
             pass
 
-        elif 'helloworldhelloworldhelloworldhelloworldhelloworldhelloworldhelloworldhelloworld' not in wort2 and len(wort2) > 0:
+        elif 'helloworldhelloworldhelloworldhelloworldhelloworldhelloworldhelloworldhelloworld' not in wort2 and len(wort2) == 0:
             st.write(f' ... {wort_b} ...wurde von keinem user geschrieben')
             pass
 
@@ -273,7 +273,7 @@ def plot():
             st.write(' ')
             pass
 
-        elif 'helloworldhelloworldhelloworldhelloworldhelloworldhelloworldhelloworldhelloworld' not in wort3 and len(wort3) > 0:
+        elif 'helloworldhelloworldhelloworldhelloworldhelloworldhelloworldhelloworldhelloworld' not in wort3 and len(wort3) == 0:
             st.write(f' ... {wort_c} ...wurde von keinem user geschrieben')
             pass        
 
