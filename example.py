@@ -35,12 +35,17 @@ st.markdown(hide_streamlit_style, unsafe_allow_html=True)
 authors = []
 all_authors = []
 messages = []
+messages_lower = []
 supporters = []
 timestamps = []
 laugh = []
 mods = []
-gesuchtes_wort = []
-gezeigte_worte = []
+
+
+wort1 = []
+wort2 = []
+wort3 = []
+
 
 
 
@@ -82,6 +87,43 @@ with col3:
     st.code('https://youtu.be/WPvWiTeZ858')
     
     st.write('Wenn du deine eigene URL eingibst und auf "Start" drückst, wird die Analyse gestartet. Der stream muss einmal komplett durchlaufen. Falls etwas schief läuft einfach die Seite aktualisieren und nochmal versuchen.')
+    
+    
+
+
+    
+    #USER CAN ENTER CUSTOM WORDS
+
+    with st.expander("Möchtest du die Häufigkeit von spezifischen Wörtern analysieren?"):
+        #create a text input
+        st.write('Wenn du diesen Schritt auslassen möchtest, lasse die Felder leer.')
+        
+        wort_a = st.text_input('Wort 1')
+        wort_a = wort_a.lower()
+        
+        #if the user entered no word, then pass
+        if wort_a == '':
+            #code appends a really unlikely word to the list
+            wort1.append('helloworldhelloworldhelloworldhelloworldhelloworldhelloworldhelloworldhelloworld')
+
+        wort_b = st.text_input('Wort 2')
+        wort_b = wort_b.lower()
+
+        if wort_b == '':
+            wort2.append('helloworldhelloworldhelloworldhelloworldhelloworldhelloworldhelloworldhelloworld')
+
+        wort_c = st.text_input('Wort 3')
+        wort_c = wort_c.lower()
+
+        if wort_c == '':
+            wort3.append('helloworldhelloworldhelloworldhelloworldhelloworldhelloworldhelloworldhelloworld')
+
+
+
+
+
+
+
     st.markdown("***")
     
     #text box input + video url
@@ -170,11 +212,80 @@ def plot():
 
     st.write('In welcher Minute lachte der YouTube chat am meisten? (haha, lol, lel, emojis, xD, ...)')
     laugh_occurences = get_minutes(laugh)
-    #plot the laugh_occurences with streamlit
-    #st.write(laugh_occurences)
-    st.plotly_chart(create_plotly_figure(laugh_occurences))
-
     
+    #if laugh_occurences is empty
+    if len(laugh_occurences) == 0:
+        st.write('Es wurde im chat nicht gelacht.')
+    elif len(laugh_occurences) > 0:
+        st.plotly_chart(create_plotly_figure(laugh_occurences))
+
+
+
+
+
+
+    def wort_eins():
+        st.markdown("***")
+        if len(wort1) == 0:
+            st.write(f' {wort_a} ...wurde von keinem user geschrieben')
+            pass
+
+        elif 'helloworldhelloworldhelloworldhelloworldhelloworldhelloworldhelloworldhelloworld' not in wort1 and len(wort1) == 0:
+            st.write(f' ... {wort_a} ...wurde von keinem user geschrieben')
+            pass
+
+        else:
+            st.write(f' Häufigkeit von ... {wort_a} ... im zeitlichen Verlauf.')
+            wort1_occurences = get_minutes(wort1)
+            st.plotly_chart(create_plotly_figure(wort1_occurences))
+            
+    
+    wort_eins()
+  
+
+
+
+    def wort_zwei():
+        st.markdown("***")
+        if 'helloworldhelloworldhelloworldhelloworldhelloworldhelloworldhelloworldhelloworld' in wort3:
+            st.write(' ')
+            pass
+
+        elif 'helloworldhelloworldhelloworldhelloworldhelloworldhelloworldhelloworldhelloworld' not in wort2 and len(wort2) == 0:
+            st.write(f' ... {wort_b} ...wurde von keinem user geschrieben')
+            pass
+
+        else:
+            st.write(f' Häufigkeit von ... {wort_b} ... im zeitlichen Verlauf.')
+            wort2_occurences = get_minutes(wort2)
+            st.plotly_chart(create_plotly_figure(wort2_occurences))
+            
+
+    wort_zwei()
+
+
+
+
+
+    def wort_drei():
+        st.markdown("***")
+        if 'helloworldhelloworldhelloworldhelloworldhelloworldhelloworldhelloworldhelloworld' in wort3:
+            st.write(' ')
+            pass
+
+        elif 'helloworldhelloworldhelloworldhelloworldhelloworldhelloworldhelloworldhelloworld' not in wort3 and len(wort3) == 0:
+            st.write(f' ... {wort_c} ...wurde von keinem user geschrieben')
+            pass        
+
+        else:
+            st.write(f' Häufigkeit von ... {wort_c} ... im zeitlichen Verlauf.')
+            wort3_occurences = get_minutes(wort3)
+            st.plotly_chart(create_plotly_figure(wort3_occurences))
+            
+
+    wort_drei()
+
+
 
 
 
@@ -204,7 +315,7 @@ def create_plotly_figure(occurences):
 
 
 #Die Hauptfunktion zum sammeln der Daten
-def runChat():
+def main():
 
   global chat
  
@@ -214,75 +325,94 @@ def runChat():
 
   while chat.is_alive():
         
-
-        
         #display a gif
         #data_load_state = st.text('Please wait...')
-        
-        
-
-        
-        for c in chat.get().sync_items():
-
-            
-            #Alle Timestamps
-            #TIMESTAMPS 0:00
-            #time_elapsed = format_time(time.time() - start_time)
-            timestamps.append(c.elapsedTime)
-            
-            all_authors.append(c.author.name)
-        
-
-            #UNIQUE AUTHORS
-            if c.author.name not in authors:
-                authors.append(c.author.name)
-            
-            if c.author.isChatModerator == True:
-                mods.append(c.author.name)
                 
+        for c in chat.get().sync_items():
 
 
             #FILTER MESSAGES
-            if c.message.startswith('!'):
+            if c.message.startswith('!') or c.author.name == 'Streamlabs':
                 pass
             
-            elif c.author.name == 'Streamlabs':
-                pass
             
             #APPEND AND OUTPUT FILTERED MESSAGES 
             else:
 ##########################################################################################################################################                
                 
                 messages.append(c.message)
-                #st.write(f" {c.author.name} // {c.message} // {c.elapsedTime} // {c.amountString}")
-                
+                lowercase = c.message.lower()
+                messages_lower.append(lowercase)
 
+                #st.write(f" {c.author.name} // {c.message} // {c.elapsedTime} // {c.amountString}")
                 
 ##########################################################################################################################################
 
-            #EXTRACT LAUGHS
-            if "haha" in c.message or ":rolling_on_the_floor_laughing:" in c.message or "lel" in c.message or "LeL" in c.message or "LEL" in c.message or "Haha" in c.message or ":grinning_squinting_face:" in c.message or ":face_with_tears_of_joy:" in c.message or "lol" in c.message or "LOL" in c.message or "HAHA" in c.message or "XD" in c.message or "xD" in c.message or "lol" in c.message:
-                laugh.append(c.elapsedTime)
+                 #Alle Timestamps
+                #TIMESTAMPS 0:00
+                #time_elapsed = format_time(time.time() - start_time)
+                timestamps.append(c.elapsedTime)
+            
+                all_authors.append(c.author.name)
+        
+
+                #UNIQUE AUTHORS
+                if c.author.name not in authors:
+                    authors.append(c.author.name)
+            
+                if c.author.isChatModerator == True:
+                    mods.append(c.author.name)
+                
+
+
+                #EXTRACT LAUGHS
+                if "haha" in c.message or ":rolling_on_the_floor_laughing:" in c.message or "lel" in c.message or "LeL" in c.message or "LEL" in c.message or "Haha" in c.message or ":grinning_squinting_face:" in c.message or ":face_with_tears_of_joy:" in c.message or "lol" in c.message or "LOL" in c.message or "HAHA" in c.message or "XD" in c.message or "xD" in c.message or "lol" in c.message:
+                    laugh.append(c.elapsedTime)
+
+
+                #EXTRACT CUSTOM WORDS
+                if wort_a in lowercase:
+                    wort1.append(c.elapsedTime)
+
+                if wort_b in lowercase:
+                    wort2.append(c.elapsedTime)
+
+                if wort_c in lowercase:
+                    wort3.append(c.elapsedTime)
+
+                
+
+               
 
 
   st.write('Fertig')
   
   
 
+if __name__ == "__main__":
+    with col3:
+        if st.button('Start', key="1"):
+            with st.spinner('Daten werden gesammelt...'):
+                main()
+                #wait 1 second
+                time.sleep(1)
+                plot()
+
+                st.success('Fertig!') 
 
 
-
-with col3:
-    st.write(' ')
-    
-    if st.button('Start', key="1"):
-        with st.spinner('Daten werden gesammelt...'):
-            runChat()
-            #wait 2 seconds
-            time.sleep(1)
-            plot()
-
-            st.success('Fertig!')        
+                #set values from list back to 0
+                messages.clear()
+                timestamps.clear()
+                all_authors.clear()
+                wort1.clear()
+                wort2.clear()
+                wort3.clear()
+                laugh.clear()
+                authors.clear()
+                mods.clear()
+                supporters.clear()
+                
 
 
 
