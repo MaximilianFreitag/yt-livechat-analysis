@@ -49,6 +49,7 @@ __________________________________________________
 
 To-Do:
 
+- [ ] If the user hits stop on the app the "Collecting data" symbol is still visible
 - [ ] The example URL always works, other URLs are not starting to collect comments (Note to myself: Look into while chat.isalive LINE 328... maybe you have to start the video in the background first)
 - [ ] After 10 minutes runtime streamlit thinks the app isn't working anymore and stops the runtime.
 - [ ] Messages that were posted over one hour before the stream started are not properly handled by the get_minutes() function. E.g. the timestamp -2:12:42 will not be turned into -212 (desired output) by the function... -59:42 --> -59 .... -1:44:04 --> ??? doesn't work and it should return -144. As a result, the plot function ignores those values.
