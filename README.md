@@ -49,7 +49,7 @@ __________________________________________________
 
 To-Do:
 
-- [ ] Streamlit only has a limited runtime for apps. The app stops collecting messages after several minutes (15 min+) (Note to myself: One of the streamlit creators told me that web sockets don't run that long in general)
+- [ ] Streamlit only has a limited runtime for single functions. My function main() stops collecting messages after 15 mins because of that (Note to myself: One of the streamlit creators told me that web sockets don't run that long in general)
 - [ ] If I run the app multiple times the app doesn't collect messages from other URLs anymore. Only if I reboot the app it all starts working again. (Note to myself: Maybe a variable causes this behaviour)
 - [ ] If the user hits stop on the app the "Collecting data" symbol is still visible
 - [ ] Messages that were posted over one hour before the stream started are not properly handled by the get_minutes() function. E.g. the timestamp -2:12:42 will not be turned into -212 (desired output) by the function... -59:42 --> -59 .... -1:44:04 --> ??? doesn't work and it should return -144. As a result, the plot function ignores those values.
@@ -75,6 +75,7 @@ __________________________________________________
 - [ ] Add a hyperlink to each graph where the max. occurences took place, e.g. This is where the most laughs occured --> https:// ....timestamp (Note to myself: Add a function that transforms the minute back to seconds, also take care of 1 hour time marks... current code transforms 60 mins to 100 (1:00:00))
 - [ ] Add a sentiment analysis with the help of the module "huggingface transformers". So the user sees "oh, from minutes 12 to 21 the chat was overall pretty happy, at minute 30 the chat was really hateful". The hugging face library labels sentences with the help of Ai into three categories ...neutral, positive and negative sentiment.  
 - [x] Add the top 3 users that commented most often rather than only the user with the max. messages
+- [ ] Exclude other bots from the collected users. (Nightbot, ....)
 
 
 <br>
