@@ -72,6 +72,7 @@ __________________________________________________
 - [ ] Make the theme of the app white, currently it depends on the users settings if the app appears in light or dark mode. Adding a .config file changes that
 - [ ] Getting rid of the timestamp when the user accidentally pastes in a URL + timestamp... e.g. URL ends with &t=2195s
 - [ ] Add a hyperlink to each graph, e.g. This is where the most laughs occured --> https:// ....timestamp
+- [ ] Add a sentiment analysis with the help of the module "huggingface transformers". So the user sees "oh, from minutes 12 to 21 the chat was overall pretty happy, at minute 30 the chat was really hateful". The hugging face library labels sentences with the help of Ai into three categories ...neutral, positive and negative sentiment.  
 
 
 <br>
