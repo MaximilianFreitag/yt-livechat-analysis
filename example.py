@@ -197,7 +197,9 @@ def plot():
         st.write('Es waren keine mods anwesend')
     else:
         #only output unique values
-        st.write(list(set(mods)))
+        unique_mods = list(set(mods))
+        for i in unique_mods:
+            st.write(i)
         
     st.markdown("***")
 
