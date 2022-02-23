@@ -372,7 +372,7 @@ def main():
                 for x in five_messages:
                     pos = five_messages.index(x)
                     d = five_messages[pos:pos+5]
-                    if pos < 5:
+                    if pos < 10:
                         #time.sleep(0.05)
                         _emp.code(f" {c.author.name} // {c.message} // {c.elapsedTime} // {c.amountString}")
 
