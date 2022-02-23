@@ -327,7 +327,7 @@ def main():
 
   while chat.is_alive():
         
-        st.write('Wenn unter diesem Satz hier keine Nachrichten zu sehen sind, ist etwas schief gelaufen. :/')
+        st.write('Wenn keine Nachrichten vom chat angezeigt werden, ist etwas schief gelaufen. :/')
         
         #display a gif
         #data_load_state = st.text('Please wait...')
