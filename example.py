@@ -446,7 +446,7 @@ background-color: transparent;
 text-decoration: underline;
 }
 a:hover,  a:active {
-color: blue;
+color: LightBlue;
 background-color: transparent;
 text-decoration: underline;
 }
@@ -461,7 +461,7 @@ text-align: center;
 }
 </style>
 <div class="footer">
-<p>Entwickelt mit ❤️  von <a style='display: block; text-align: center;' href="https://www.instagram.com/max_mnemo/" target="_blank">Max Mnemo </a></p>
+<p>Entwickelt mit ❤️  von <a style='display: block-inline; text-align: center;' href="https://www.instagram.com/max_mnemo/" target="_blank">Max Mnemo </a> + <a style='display: block-inline; text-align: center;' href="https://www.github.com/MaximilianFreitag/yt-livechat-analysis" target="_blank">Github </a></p>
 </div>
 """
 st.markdown(footer,unsafe_allow_html=True)
