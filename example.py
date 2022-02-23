@@ -188,13 +188,8 @@ def plot():
         
     st.markdown("***")
     #output the string that appears most often in all_authors
-    st.write('Die top 3 user die am meisten kommentiert haben')
-    most_frequent_authours = sorted(all_authors.items(), key=operator.itemgetter(1), reverse=True)[:3]
-    for f in most_frequent_authours:
-        st.write(f)
-    
-
-    #st.write(max(all_authors, key=all_authors.count))
+    st.write('User der am meisten kommentiert hat')
+    st.write(max(all_authors, key=all_authors.count))
     st.markdown("***")
 
 
