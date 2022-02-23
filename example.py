@@ -323,11 +323,11 @@ def main():
   
   #Adding a GIF?
   #st.image('https://media.giphy.com/media/l46Cy1rHbQ92uuLXa/giphy.gif')
-
+  st.write('Wenn keine Nachrichten vom chat angezeigt werden, ist etwas schief gelaufen. :/')
+        
 
   while chat.is_alive():
         
-        st.write('Wenn keine Nachrichten vom chat angezeigt werden, ist etwas schief gelaufen. :/')
         
         #display a gif
         #data_load_state = st.text('Please wait...')
