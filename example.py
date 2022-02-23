@@ -372,7 +372,7 @@ def main():
                 for x in five_messages:
                     pos = five_messages.index(x)
                     d = five_messages[pos:pos+5]
-                    if pos < 100:
+                    if pos < 5:
                         #time.sleep(0.05)
                         _emp.code(f" {c.author.name} // {c.message} // {c.elapsedTime} // {c.amountString}")
 
@@ -478,7 +478,7 @@ text-align: center;
 }
 </style>
 <div class="footer">
-<p>Entwickelt mit ❤️  von <a style='display: inline-block;' href="https://www.instagram.com/max_mnemo/" target="_blank">Max Mnemo </a> + <a style='display: block-inline; text-align: center;' href="https://www.github.com/MaximilianFreitag/yt-livechat-analysis" target="_blank">Github </a></p>
+<p>Entwickelt mit ❤️  von <a style='display: inline-block;' href="https://www.instagram.com/max_mnemo/" target="_blank">Max Mnemo </a> // <a style='display: block-inline; text-align: center;' href="https://www.github.com/MaximilianFreitag/yt-livechat-analysis" target="_blank">Github </a> // <a style='display: block-inline; text-align: center;' href="https://mnemo.uk/contact/" target="_blank">Contact </a></p>
 </div>
 """
 st.markdown(footer,unsafe_allow_html=True)
