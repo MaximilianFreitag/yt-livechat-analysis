@@ -49,7 +49,7 @@ __________________________________________________
 
 To-Do:
 
-- [ ] Streamlit only has a limited runtime for apps. The app stops collecting messages after several minutes (20 min+)
+- [ ] Streamlit only has a limited runtime for apps. The app stops collecting messages after several minutes (20 min+) (Note to myself: Streamlit offers you 1 GB of resources for your apps, maybe collecting all the comments is too resource heavy)
 - [ ] If I run the app multiple times the app doesn't collect messages from other URLs anymore. Only if I reboot the app it all starts working again. (Note to myself: Maybe a variable causes this behaviour)
 - [ ] If the user hits stop on the app the "Collecting data" symbol is still visible
 - [ ] Messages that were posted over one hour before the stream started are not properly handled by the get_minutes() function. E.g. the timestamp -2:12:42 will not be turned into -212 (desired output) by the function... -59:42 --> -59 .... -1:44:04 --> ??? doesn't work and it should return -144. As a result, the plot function ignores those values.
