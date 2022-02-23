@@ -74,6 +74,7 @@ __________________________________________________
 - [ ] Getting rid of the timestamp when the user accidentally pastes in a URL + timestamp... e.g. URL ends with &t=2195s
 - [ ] Add a hyperlink to each graph where the max. occurences took place, e.g. This is where the most laughs occured --> https:// ....timestamp (Note to myself: Add a function that transforms the minute back to seconds, also take care of 1 hour time marks... current code transforms 60 mins to 100 (1:00:00))
 - [ ] Add a sentiment analysis with the help of the module "huggingface transformers". So the user sees "oh, from minutes 12 to 21 the chat was overall pretty happy, at minute 30 the chat was really hateful". The hugging face library labels sentences with the help of Ai into three categories ...neutral, positive and negative sentiment.  
+- [x] Add the top 3 users that commented most often rather than only the user with the max. messages
 
 
 <br>
