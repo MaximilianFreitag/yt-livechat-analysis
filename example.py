@@ -83,9 +83,9 @@ with col3:
     st.image(image, caption='Beispiel einer Wiedergabe des chats aus einem stream')
     
     st.write('Die Analyse funktioniert NICHT bei gerade laufenden livestreams! ')
-    st.write('Hier ist eine Beispiel URL eines streams der 125 Minuten ging. Copy/Paste den folgenden Link, wenn du einfach nur diese app austesten möchtest')
+    st.write('Hier ist eine Beispiel URL eines streams der 1 Stunde ging. Copy/Paste den folgenden Link, wenn du einfach nur diese app austesten möchtest')
     
-    st.code('https://youtu.be/WPvWiTeZ858')
+    st.code('https://youtu.be/e7EVbT0W9uU')
     
     st.write('Wenn du deine eigene URL eingibst und auf "Start" drückst, wird die Analyse gestartet. Der stream muss einmal komplett durchlaufen. Falls etwas schief läuft einfach die Seite aktualisieren und nochmal versuchen.')
     
@@ -97,7 +97,7 @@ with col3:
 
     with st.expander("Möchtest du die Häufigkeit von spezifischen Wörtern analysieren?"):
         #create a text input
-        st.write('Wenn du diesen Schritt auslassen möchtest, lasse die Felder leer. Beachte: Groß-und Kleinschreibung sind egal, aber looooooool ist nicht dasselbe wie lol.')
+        st.write('Wenn du diesen Schritt auslassen möchtest, lasse die Felder leer. Für emojis trage den emojipedia.org shortcode ein, NICHT den emoji selber. (Bsp.: Herz = :red_heart:) Beachte: Groß-und Kleinschreibung sind egal, aber loooool ist nicht dasselbe wie lol.')
         
         wort_a = st.text_input('Wort 1')
         wort_a = wort_a.lower()
