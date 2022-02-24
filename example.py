@@ -98,8 +98,8 @@ with col3:
     with st.expander("Möchtest du die Häufigkeit von spezifischen Wörtern analysieren?"):
         #create a text input
         st.write('Wenn du diesen Schritt auslassen möchtest, lasse die Felder leer.')
-        st.write('Für emojis, trage den emojipedia.org shortcode ein, NICHT das Emoji selbst. (Bsp.: Herz = :red_heart:) Beachte: Groß-und Kleinschreibung sind egal, aber Blumeeeeee ist nicht dasselbe wie Blume').
-        st.write('Satzzeichen funktionieren natürlich auch. Probier es mal aus mit ?, um zu gucken, wo Fragen gestellt wurden.')
+        st.write('Für emojis, trage den emojipedia.org shortcode ein, NICHT das Emoji selbst. (Bsp.: Herz = :red_heart:) Beachte: Groß-und Kleinschreibung sind egal, aber Blumeeeeee ist nicht dasselbe wie Blume.')
+        st.write('Satzzeichen funktionieren natürlich auch. Probiere es mal aus mit ?, um zu gucken, wo Fragen gestellt wurden.')
         wort_a = st.text_input('Wort 1')
         wort_a = wort_a.lower()
         
