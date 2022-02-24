@@ -85,7 +85,7 @@ with col3:
     st.write('Die Analyse funktioniert NICHT bei gerade laufenden livestreams! ')
     st.write('Hier ist eine Beispiel URL eines streams der 1 Stunde ging. Copy/Paste den folgenden Link, wenn du einfach nur diese app austesten möchtest')
     
-    st.code('https://youtu.be/e7EVbT0W9uU')
+    st.code('https://youtu.be/WPvWiTeZ858')
     
     st.write('Wenn du deine eigene URL eingibst und auf "Start" drückst, wird die Analyse gestartet. Der stream muss einmal komplett durchlaufen. Falls etwas schief läuft einfach die Seite aktualisieren und nochmal versuchen.')
     
