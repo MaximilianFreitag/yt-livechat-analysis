@@ -83,7 +83,7 @@ with col3:
     st.image(image, caption='Beispiel einer Wiedergabe des chats aus einem stream')
     
     st.write('Die Analyse funktioniert NICHT bei gerade laufenden livestreams! ')
-    st.write('Hier ist eine Beispiel URL eines streams der 1 Stunde ging. Copy/Paste den folgenden Link, wenn du einfach nur diese app austesten möchtest')
+    st.write('Hier ist eine Beispiel URL eines Streams der 125 Minuten ging. Copy/Paste den folgenden Link, wenn du einfach nur diese app austesten möchtest')
     
     st.code('https://youtu.be/WPvWiTeZ858')
     
