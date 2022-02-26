@@ -144,12 +144,10 @@ with col3:
     if '&t=' in url:
         video_id = url.split('&t=')[0].split('=')[1]    
     
-    def get_id(url):
-        return url.split('?')[0].split('/')[-1]
-
-    if '?t=' in url:
-        video_id = get_id(url)    
-    
+    if '?t=' in url2:
+        video_id = url.split('?t=')[0].split('/')[-1]  
+        
+        
     if url.startswith('https://youtu.be'):
         video_id = url.split('be/')[1] 
         #st.write(video_id)
