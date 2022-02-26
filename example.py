@@ -144,7 +144,7 @@ with col3:
     if '&t=' in url:
         video_id = url.split('&t=')[0].split('=')[1]    
     
-    if '?t=' in url2:
+    if '?t=' in url:
         video_id = url.split('?t=')[0].split('/')[-1]  
         
         
