@@ -8,6 +8,8 @@ Demo --> https://share.streamlit.io/maximilianfreitag/yt-livechat-analysis/main/
 
 Google Colab File, same code but a "ugly" UI (Works all the time) --> https://colab.research.google.com/drive/1lUkc92nJoa-VO8-1whUx5LT_XyD_pzrW?usp=sharing 
 
+Second Google Colab File if you want to collect a real LIVE chat not only the replay  --> https://colab.research.google.com/drive/15sPeuAkv6hJunklK0wRLZDBZA-jP1eNy?usp=sharing
+
 <br>
 
 ![789789789789](https://user-images.githubusercontent.com/46624616/153844790-f9c62c62-760e-4321-826f-2f1747debe03.jpg)
