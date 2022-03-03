@@ -6,9 +6,9 @@ __________________________________________________
 
 Demo --> https://share.streamlit.io/maximilianfreitag/yt-livechat-analysis/main/example.py
 
-Google Colab File, same code but a "ugly" UI (Works all the time) --> https://colab.research.google.com/drive/1lUkc92nJoa-VO8-1whUx5LT_XyD_pzrW?usp=sharing 
+Google Colab File, same code but an "ugly" UI (Change the ID and press play) --> https://colab.research.google.com/drive/1lUkc92nJoa-VO8-1whUx5LT_XyD_pzrW?usp=sharing 
 
-Second Google Colab File if you want to collect a real LIVE chat not only the replay  --> https://colab.research.google.com/drive/15sPeuAkv6hJunklK0wRLZDBZA-jP1eNy?usp=sharing
+Second Google Colab File if you want to collect a real LIVE chat not only the replay (Change the ID and press play --> https://colab.research.google.com/drive/15sPeuAkv6hJunklK0wRLZDBZA-jP1eNy?usp=sharing
 
 <br>
 
