@@ -92,6 +92,7 @@ __________________________________________________
 
 
 
+
 ## Stargazers over time
 
 [![Stargazers over time](https://starchart.cc/MaximilianFreitag/yt-livechat-analysis.svg)](https://starchart.cc/MaximilianFreitag/yt-livechat-analysis)
