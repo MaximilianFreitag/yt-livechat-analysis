@@ -8,6 +8,13 @@ import plotly.graph_objects as go
 from PIL import Image
 import time as time
 import operator
+import urllib
+from wordcloud import WordCloud
+from transformers import pipeline
+from transformers import AutoTokenizer, AutoModelForSequenceClassification
+import torch
+import torch.nn.functional as F
+from collections import Counter
 
 
 
@@ -28,7 +35,8 @@ hide_streamlit_style = """
 st.markdown(hide_streamlit_style, unsafe_allow_html=True) 
 
 
-
+#Necassary for the line 484 so that streamlit doesn't show the message... pass arguments
+st.set_option('deprecation.showPyplotGlobalUse', False)
 
 
 
@@ -87,7 +95,7 @@ with col3:
     
     st.code('https://youtu.be/WPvWiTeZ858')
     
-    st.write('Wenn du deine eigene URL eingibst und auf "Start" drückst, wird die Analyse gestartet. Der stream muss einmal komplett durchlaufen. Falls etwas schief läuft einfach die Seite aktualisieren und nochmal versuchen.')
+    st.write('Wenn du deine eigene URL eingibst und auf "Start" drückst, wird die Analyse gestartet. Der stream muss einmal komplett durchlaufen. Falls überhaupt nichts klappt, dann klicke unten auf mein Github Profil. Da habe ich eine Google Colab Datei, die immer funktioniert.')
     
     
 
@@ -223,8 +231,8 @@ def plot():
             st.write(i)
         
     st.markdown("***")
-
-    st.write('Verlauf der Anzahl der Nachrichten pro Minute:')
+    st.markdown("<h6 style='text-align: center; color: black;'>Verlauf der Anzahl der Nachrichten pro Minute:</h6>", unsafe_allow_html=True)
+    
     occurences = get_minutes(timestamps)
     #plot the occurences with streamlit
     #st.write(occurences)
@@ -233,12 +241,13 @@ def plot():
 
     st.markdown("***")
 
-    st.write('In welcher Minute lachte der YouTube chat am meisten? (haha, lol, lel, emojis, xD, ...)')
+    st.markdown("<h6 style='text-align: center; color: black;'>In welcher Minute lachte der YouTube chat am meisten? (haha, lol, lel, emojis, xD, ...)</h6>", unsafe_allow_html=True)
+    
     laugh_occurences = get_minutes(laugh)
     
     #if laugh_occurences is empty
     if len(laugh_occurences) == 0:
-        st.write('Es wurde im chat nicht gelacht.')
+        st.write('Es wurde im chat nicht gelacht. :/')
     elif len(laugh_occurences) > 0:
         st.plotly_chart(create_plotly_figure(laugh_occurences))
 
@@ -428,7 +437,162 @@ def main():
 
   st.write('Fertig')
   
-  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#Creating a WORDCLOUD
+#########################
+def make_wordcloud(messages):
+
+   
+
+    #FETCH german stop words from a github repo
+    url = 'https://raw.githubusercontent.com/solariz/german_stopwords/master/german_stopwords_plain.txt'
+    with urllib.request.urlopen(url) as response:
+        german_stopwords = response.read().decode('utf-8').splitlines()
+
+
+    #removing the first 10 words from the list
+    german_stopwords = german_stopwords[9:]
+    add_words = ['und', 'in', 'statt', 'mal']
+    german_stopwords = german_stopwords + add_words
+
+    wordcloud_messages = [x.lower() for x in messages]
+    #make each word separate in a list so that there are no sentences
+    wordcloud_messages2 = [x.split() for x in wordcloud_messages]
+    #make one big list
+    wordcloud_messages3 = [item for sublist in wordcloud_messages2 for item in sublist]
+    
+    #remove stopwords
+    wordcloud_messages4 = [x for x in wordcloud_messages3 if x not in german_stopwords]
+    
+    
+    #make a wordcloud from the list wordcloud_messages4
+    wordcloud = WordCloud(width=800, height=800, max_font_size=200, background_color='white').generate(' '.join(wordcloud_messages4))
+    fig, ax = plt.subplots()
+    plt.figure(figsize=(10, 10), facecolor=None)
+    plt.imshow(wordcloud)
+    plt.axis("off")
+    plt.tight_layout(pad=0)
+    st.pyplot(fig=None, clear_figure=None)
+
+
+
+
+
+def natural_language_processing(messages):
+    
+    
+    
+
+
+    model_name = 'oliverguhr/german-sentiment-bert'
+
+
+    tokenizer = AutoTokenizer.from_pretrained(model_name)
+    model = AutoModelForSequenceClassification.from_pretrained(model_name)
+    X_train_german= messages
+    batch = tokenizer(X_train_german, padding=True, truncation=True, max_length = 512, return_tensors='pt')
+    batch = torch.tensor(batch['input_ids'])
+    #print(batch)
+
+
+
+    with torch.no_grad():
+        outputs = model(batch)
+        label_ids = torch.argmax(outputs.logits, dim=1)
+        #print(label_ids)
+        labels = [model.config.id2label[label_id] for label_id in label_ids.tolist()]
+        print(labels)
+
+
+    #Count the labels
+    count = Counter(labels)
+
+    plt.bar(count.keys(), count.values(), width=0.5, color='blue')
+    #make the graph look nicer
+    plt.title('Die Labels der Ki')
+    plt.ylabel('Anzahl der Vorkommnisse')
+
+    #make the font bigger
+    plt.rcParams.update({'font.size': 32})
+    
+    #make the text bigger
+    st.pyplot(fig=None, clear_figure=None)
+
+
+
+
+
+
+def beschreibung_wordcloud():
+    st.markdown("***")
+    st.write('  ')
+    #make a st.markdown heading h2
+    st.markdown("<h3 style='text-align: center; color: black;'>Wortwolke</h3>", unsafe_allow_html=True)
+    st.write('Welche Wörter kamen häufig vor im Chat? (Ohne Stoppwörter, aber mit emojis z.B. red_heart) ')
+    #make a drop down menu
+    
+    with st.expander("Erklärung: Was sind Wortwolken/Stoppwörter?"):
+        
+        st.write('  ')
+        st.write('Da ich mit meinem Code jeden einzelnen Satz im chat gesammelt habe, kann man aus diesen Daten, die am häufigsten vorkommenden Wörter entnehmen.')
+        st.write('Um dies zu veranschaulichen kann man als visuelle Hilfe eine sogenannte Wortwolke bilden.')
+        st.write('Bei dieser Wortwolke habe ich Stoppwörter so gut es geht entfernt. Stoppwörter sind nichts anderes als die häufigsten Wörter innerhalb einer Sprache.')
+        st.write('Z.B. Un/bestimmte Artikel (der, die, das, ein, eine) oder auch Präpositionen (auf, über, unter,...)')
+        st.write('Aus diesen Wörtern kann man schwer was ableiten und sie behindern eher die Analyse. ')
+    
+    st.write('  ')
+
+
+
+
+
+
+
+
+
+def beschreibung_sentiment():
+    st.markdown("***")
+    st.write('  ')
+    #make a st.markdown heading h2
+    st.markdown("<h3 style='text-align: center; color: black;'>Computerlinguistik</h3>", unsafe_allow_html=True)
+    st.write('Wie war die allgemeine Stimmung im Stream? 😊 😡 ')
+    #make a drop down menu
+    
+    with st.expander("Erklärung: Was hat es mit der Computerlinguistik auf sich und wie funktioniert mein Code?"):
+        #create a text input
+        st.write('Ich habe die Bibliothek Huggingface verwendet, die in der Computerlinguistik dazu verwendet wird, um Stimmungen von Sätzen zu bestimmen.')
+        st.write('Hierfür habe ich eine Ki verwendet, die auf deutsche Sätze von einem Programmierer trainiert wurde. Das heißt, jemand hat sich die Mühe gemacht tausende Sätze mit schlechten und guten Stimmungen zu sammeln und somit die Ki zu trainieren.')
+        st.write('Sätze wie "Er ist so ein Idiot" erhalten von der Ki z.B. einen Sentiment-Score von 0.98, was bedeutet, dass die KI zu 98 Prozent sicher ist, dass dieser Satz eine negative Stimmung hat.')
+        st.write('Sätze, bei denen die KI einen bestimmten Sentiment-Score nicht übersteigt, z.B. der Satz "Die Mauer ist grün" ... (0,15) ... werden als neutral gelabelt')
+        st.write('Das Gleiche gilt für positive Stimmungen. Positive Sätze wie "Ich liebe Waffeln" ... (0,97) ... erhalten ebenfalls eine Stimmungsbewertung. Bei den Waffel-satz ist sich die KI zu 97 Prozent sicher, dass der Satz positiv gemeint war')
+        st.write('Wie man sich vorstellen kann, ist es für KIs schwer, sarkastische, ironische Sätze zu erkennen. Z.B. "Ich bin so froh, dass eine neue Pandemie auf uns zukommt." ... trotzdem kann man aber ein insgesamt gutes Ergebnis erzielen.')
+        
+
+
+
+
+
+
+
+
+
+
 
 if __name__ == "__main__":
     with col3:
@@ -439,6 +603,24 @@ if __name__ == "__main__":
                 time.sleep(1)
                 plot()
 
+                #wordcloud
+                beschreibung_wordcloud()
+                make_wordcloud(messages)  
+
+                #add some whitespace
+                st.write(' ')
+                st.write(' ')
+
+                #natural language analysis
+                beschreibung_sentiment()
+                st.write(' ')
+                natural_language_processing(messages)
+                st.write(f'Es wurden ...{len(messages)}... Sätze von der Ki analysiert und gelabelt.')
+
+
+                st.write(' ')
+                st.write(' ')
+                st.write(' ')
                 st.success('Fertig!') 
 
 
