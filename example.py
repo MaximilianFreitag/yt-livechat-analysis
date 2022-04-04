@@ -528,9 +528,7 @@ def natural_language_processing(messages):
     plt.title('Die Labels der Ki')
     plt.ylabel('Anzahl der Vorkommnisse')
 
-    #make the font bigger
-    plt.rcParams.update({'font.size': 32})
-    
+   
     #make the text bigger
     st.pyplot(fig=None, clear_figure=None)
 
